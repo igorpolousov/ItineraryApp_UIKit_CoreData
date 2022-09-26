@@ -13,6 +13,8 @@
 		C2C68E7828E1C2DD008C70E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2C68E7628E1C2DD008C70E1 /* Main.storyboard */; };
 		C2C68E7A28E1C2DE008C70E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2C68E7928E1C2DE008C70E1 /* Assets.xcassets */; };
 		C2C68E7D28E1C2DE008C70E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2C68E7B28E1C2DE008C70E1 /* LaunchScreen.storyboard */; };
+		C2C68E8728E1C6D3008C70E1 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E8628E1C6D3008C70E1 /* TripModel.swift */; };
+		C2C68E8928E1C6E1008C70E1 /* TripFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E8828E1C6E1008C70E1 /* TripFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		C2C68E7928E1C2DE008C70E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2C68E7C28E1C2DE008C70E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2C68E7E28E1C2DE008C70E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2C68E8628E1C6D3008C70E1 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
+		C2C68E8828E1C6E1008C70E1 /* TripFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		C2C68E6F28E1C2DD008C70E1 /* ItineraryApp */ = {
 			isa = PBXGroup;
 			children = (
+				C2C68E8428E1C69E008C70E1 /* Model */,
 				C2C68E7028E1C2DD008C70E1 /* AppDelegate.swift */,
 				C2C68E7228E1C2DD008C70E1 /* SceneDelegate.swift */,
 				C2C68E7428E1C2DD008C70E1 /* ViewController.swift */,
@@ -65,6 +70,23 @@
 				C2C68E7E28E1C2DE008C70E1 /* Info.plist */,
 			);
 			path = ItineraryApp;
+			sourceTree = "<group>";
+		};
+		C2C68E8428E1C69E008C70E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C2C68E8528E1C6A6008C70E1 /* Trip */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C2C68E8528E1C6A6008C70E1 /* Trip */ = {
+			isa = PBXGroup;
+			children = (
+				C2C68E8628E1C6D3008C70E1 /* TripModel.swift */,
+				C2C68E8828E1C6E1008C70E1 /* TripFunctions.swift */,
+			);
+			path = Trip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +161,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2C68E7528E1C2DD008C70E1 /* ViewController.swift in Sources */,
+				C2C68E8928E1C6E1008C70E1 /* TripFunctions.swift in Sources */,
 				C2C68E7128E1C2DD008C70E1 /* AppDelegate.swift in Sources */,
+				C2C68E8728E1C6D3008C70E1 /* TripModel.swift in Sources */,
 				C2C68E7328E1C2DD008C70E1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
