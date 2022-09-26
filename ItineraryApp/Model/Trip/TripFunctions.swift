@@ -17,6 +17,12 @@ class TripFunctions {
     
     // Получить данные для таблицы от путешествия
     static func readTrip() {
+        // Fake data for building interface model
+        if Data.tripModels.count == 0 {
+            Data.tripModels.append(TripModel(title: "Trip to Bali!"))
+            Data.tripModels.append(TripModel(title: "Mexico"))
+            Data.tripModels.append(TripModel(title: "Russian trip"))
+        }
         
     }
     
