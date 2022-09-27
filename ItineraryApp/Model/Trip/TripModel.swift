@@ -11,10 +11,10 @@ import Foundation
 class TripModel {
     
     var title: String
-    var id: String // Номер путешествия нужен для того чтобы отличать два поста с одинкаовыми названиями
+    let id: UUID // Номер путешествия нужен для того чтобы отличать два поста с одинкаовыми названиями
     
     init(title: String) {
         self.title = title
-        id = UUID().uuidString
+        id = UUID()
     }
 }
