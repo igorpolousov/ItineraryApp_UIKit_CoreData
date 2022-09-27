@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C29F2B8728E33949005D3F44 /* TripsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */; };
+		C29F2B8928E33960005D3F44 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F2B8828E33960005D3F44 /* TripsViewController.swift */; };
 		C2C68E7128E1C2DD008C70E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E7028E1C2DD008C70E1 /* AppDelegate.swift */; };
 		C2C68E7328E1C2DD008C70E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E7228E1C2DD008C70E1 /* SceneDelegate.swift */; };
 		C2C68E7528E1C2DD008C70E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E7428E1C2DD008C70E1 /* ViewController.swift */; };
-		C2C68E7828E1C2DD008C70E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2C68E7628E1C2DD008C70E1 /* Main.storyboard */; };
 		C2C68E7A28E1C2DE008C70E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2C68E7928E1C2DE008C70E1 /* Assets.xcassets */; };
 		C2C68E7D28E1C2DE008C70E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2C68E7B28E1C2DE008C70E1 /* LaunchScreen.storyboard */; };
 		C2C68E8728E1C6D3008C70E1 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E8628E1C6D3008C70E1 /* TripModel.swift */; };
@@ -19,11 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TripsViewController.storyboard; sourceTree = "<group>"; };
+		C29F2B8828E33960005D3F44 /* TripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
 		C2C68E6D28E1C2DD008C70E1 /* ItineraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItineraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C68E7028E1C2DD008C70E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2C68E7228E1C2DD008C70E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C2C68E7428E1C2DD008C70E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C2C68E7728E1C2DD008C70E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C2C68E7928E1C2DE008C70E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2C68E7C28E1C2DE008C70E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2C68E7E28E1C2DE008C70E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C29F2B8528E326A8005D3F44 /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */,
+				C29F2B8828E33960005D3F44 /* TripsViewController.swift */,
+			);
+			path = "View controllers";
+			sourceTree = "<group>";
+		};
 		C2C68E6428E1C2DD008C70E1 = {
 			isa = PBXGroup;
 			children = (
@@ -63,10 +74,10 @@
 			isa = PBXGroup;
 			children = (
 				C2C68E8428E1C69E008C70E1 /* Model */,
+				C29F2B8528E326A8005D3F44 /* View controllers */,
 				C2C68E7028E1C2DD008C70E1 /* AppDelegate.swift */,
 				C2C68E7228E1C2DD008C70E1 /* SceneDelegate.swift */,
 				C2C68E7428E1C2DD008C70E1 /* ViewController.swift */,
-				C2C68E7628E1C2DD008C70E1 /* Main.storyboard */,
 				C2C68E7928E1C2DE008C70E1 /* Assets.xcassets */,
 				C2C68E7B28E1C2DE008C70E1 /* LaunchScreen.storyboard */,
 				C2C68E7E28E1C2DE008C70E1 /* Info.plist */,
@@ -151,8 +162,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2C68E7D28E1C2DE008C70E1 /* LaunchScreen.storyboard in Resources */,
+				C29F2B8728E33949005D3F44 /* TripsViewController.storyboard in Resources */,
 				C2C68E7A28E1C2DE008C70E1 /* Assets.xcassets in Resources */,
-				C2C68E7828E1C2DD008C70E1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C29F2B8928E33960005D3F44 /* TripsViewController.swift in Sources */,
 				C2C68E7528E1C2DD008C70E1 /* ViewController.swift in Sources */,
 				C2C68E8B28E1CB09008C70E1 /* Data.swift in Sources */,
 				C2C68E8928E1C6E1008C70E1 /* TripFunctions.swift in Sources */,
@@ -175,14 +187,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C2C68E7628E1C2DD008C70E1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C2C68E7728E1C2DD008C70E1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C2C68E7B28E1C2DE008C70E1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -318,8 +322,10 @@
 				DEVELOPMENT_TEAM = C3M56A453W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ItineraryApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MaxActive;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = TripsViewController.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -350,8 +356,10 @@
 				DEVELOPMENT_TEAM = C3M56A453W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ItineraryApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MaxActive;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = TripsViewController.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
