@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C28970F328E4560000D5C817 /* TripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28970F228E4560000D5C817 /* TripsTableViewCell.swift */; };
+		C28970F628E4620700D5C817 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28970F528E4620700D5C817 /* UIViewExtensions.swift */; };
 		C29F2B8728E33949005D3F44 /* TripsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */; };
 		C29F2B8928E33960005D3F44 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F2B8828E33960005D3F44 /* TripsViewController.swift */; };
 		C2C68E7128E1C2DD008C70E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E7028E1C2DD008C70E1 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		C28970F228E4560000D5C817 /* TripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewCell.swift; sourceTree = "<group>"; };
+		C28970F528E4620700D5C817 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TripsViewController.storyboard; sourceTree = "<group>"; };
 		C29F2B8828E33960005D3F44 /* TripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
 		C2C68E6D28E1C2DD008C70E1 /* ItineraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItineraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C28970F428E461E200D5C817 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C28970F528E4620700D5C817 /* UIViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C29F2B8528E326A8005D3F44 /* View controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +86,7 @@
 		C2C68E6F28E1C2DD008C70E1 /* ItineraryApp */ = {
 			isa = PBXGroup;
 			children = (
+				C28970F428E461E200D5C817 /* Extensions */,
 				C2C68E8428E1C69E008C70E1 /* Model */,
 				C29F2B8528E326A8005D3F44 /* View controllers */,
 				C2C68E7028E1C2DD008C70E1 /* AppDelegate.swift */,
@@ -184,6 +195,7 @@
 				C2C68E8928E1C6E1008C70E1 /* TripFunctions.swift in Sources */,
 				C2C68E7128E1C2DD008C70E1 /* AppDelegate.swift in Sources */,
 				C2C68E8728E1C6D3008C70E1 /* TripModel.swift in Sources */,
+				C28970F628E4620700D5C817 /* UIViewExtensions.swift in Sources */,
 				C2C68E7328E1C2DD008C70E1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
