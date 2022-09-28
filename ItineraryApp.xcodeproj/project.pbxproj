@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C28970F328E4560000D5C817 /* TripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28970F228E4560000D5C817 /* TripsTableViewCell.swift */; };
 		C29F2B8728E33949005D3F44 /* TripsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */; };
 		C29F2B8928E33960005D3F44 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F2B8828E33960005D3F44 /* TripsViewController.swift */; };
 		C2C68E7128E1C2DD008C70E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E7028E1C2DD008C70E1 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C28970F228E4560000D5C817 /* TripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewCell.swift; sourceTree = "<group>"; };
 		C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TripsViewController.storyboard; sourceTree = "<group>"; };
 		C29F2B8828E33960005D3F44 /* TripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
 		C2C68E6D28E1C2DD008C70E1 /* ItineraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItineraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +52,7 @@
 			children = (
 				C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */,
 				C29F2B8828E33960005D3F44 /* TripsViewController.swift */,
+				C28970F228E4560000D5C817 /* TripsTableViewCell.swift */,
 			);
 			path = "View controllers";
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28970F328E4560000D5C817 /* TripsTableViewCell.swift in Sources */,
 				C29F2B8928E33960005D3F44 /* TripsViewController.swift in Sources */,
 				C2C68E7528E1C2DD008C70E1 /* ViewController.swift in Sources */,
 				C2C68E8B28E1CB09008C70E1 /* Data.swift in Sources */,
