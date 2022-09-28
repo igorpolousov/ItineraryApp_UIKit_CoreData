@@ -7,10 +7,11 @@
 
 import UIKit
 
-class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TripsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,8 +21,11 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         TripFunctions.readTrip { [weak self] in
             self?.tableView.reloadData()
         }
-        
     }
+}
+
+// MARK: TableView setup
+extension TripsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Data.tripModels.count
@@ -36,5 +40,4 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
     }
-
 }
