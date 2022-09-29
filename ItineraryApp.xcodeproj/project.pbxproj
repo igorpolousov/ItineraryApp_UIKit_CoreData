@@ -11,6 +11,8 @@
 		C28970F628E4620700D5C817 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28970F528E4620700D5C817 /* UIViewExtensions.swift */; };
 		C29F2B8728E33949005D3F44 /* TripsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */; };
 		C29F2B8928E33960005D3F44 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F2B8828E33960005D3F44 /* TripsViewController.swift */; };
+		C2B502EE28E5A1F300FA832F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B502ED28E5A1F200FA832F /* Theme.swift */; };
+		C2B502F028E5A2D400FA832F /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2B502EF28E5A2D400FA832F /* Lobster-Regular.ttf */; };
 		C2C68E7128E1C2DD008C70E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E7028E1C2DD008C70E1 /* AppDelegate.swift */; };
 		C2C68E7328E1C2DD008C70E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E7228E1C2DD008C70E1 /* SceneDelegate.swift */; };
 		C2C68E7528E1C2DD008C70E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E7428E1C2DD008C70E1 /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 		C28970F528E4620700D5C817 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TripsViewController.storyboard; sourceTree = "<group>"; };
 		C29F2B8828E33960005D3F44 /* TripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
+		C2B502ED28E5A1F200FA832F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		C2B502EF28E5A2D400FA832F /* Lobster-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster-Regular.ttf"; sourceTree = "<group>"; };
 		C2C68E6D28E1C2DD008C70E1 /* ItineraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItineraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C68E7028E1C2DD008C70E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2C68E7228E1C2DD008C70E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 			path = "View controllers";
 			sourceTree = "<group>";
 		};
+		C2B502EC28E5A1D600FA832F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C2B502EF28E5A2D400FA832F /* Lobster-Regular.ttf */,
+				C2B502ED28E5A1F200FA832F /* Theme.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C2C68E6428E1C2DD008C70E1 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +99,7 @@
 		C2C68E6F28E1C2DD008C70E1 /* ItineraryApp */ = {
 			isa = PBXGroup;
 			children = (
+				C2B502EC28E5A1D600FA832F /* Resources */,
 				C28970F428E461E200D5C817 /* Extensions */,
 				C2C68E8428E1C69E008C70E1 /* Model */,
 				C29F2B8528E326A8005D3F44 /* View controllers */,
@@ -176,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2C68E7D28E1C2DE008C70E1 /* LaunchScreen.storyboard in Resources */,
+				C2B502F028E5A2D400FA832F /* Lobster-Regular.ttf in Resources */,
 				C29F2B8728E33949005D3F44 /* TripsViewController.storyboard in Resources */,
 				C2C68E7A28E1C2DE008C70E1 /* Assets.xcassets in Resources */,
 			);
@@ -195,6 +210,7 @@
 				C2C68E8928E1C6E1008C70E1 /* TripFunctions.swift in Sources */,
 				C2C68E7128E1C2DD008C70E1 /* AppDelegate.swift in Sources */,
 				C2C68E8728E1C6D3008C70E1 /* TripModel.swift in Sources */,
+				C2B502EE28E5A1F300FA832F /* Theme.swift in Sources */,
 				C28970F628E4620700D5C817 /* UIViewExtensions.swift in Sources */,
 				C2C68E7328E1C2DD008C70E1 /* SceneDelegate.swift in Sources */,
 			);
