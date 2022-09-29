@@ -21,7 +21,7 @@ class TripFunctions {
         DispatchQueue.global(qos: .userInteractive).async {
             // Fake data for building interface model
             if Data.tripModels.count == 0 {
-                Data.tripModels.append(TripModel(title: "Trip to Bali!"))
+                Data.tripModels.append(TripModel(title: "Минводы по горам"))
                 Data.tripModels.append(TripModel(title: "Mexico"))
                 Data.tripModels.append(TripModel(title: "Russian trip"))
             }

@@ -13,6 +13,8 @@
 		C29F2B8928E33960005D3F44 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F2B8828E33960005D3F44 /* TripsViewController.swift */; };
 		C2B502EE28E5A1F300FA832F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B502ED28E5A1F200FA832F /* Theme.swift */; };
 		C2B502F028E5A2D400FA832F /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2B502EF28E5A2D400FA832F /* Lobster-Regular.ttf */; };
+		C2B502F328E5AAD900FA832F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2B502F228E5AAD900FA832F /* Colors.xcassets */; };
+		C2B502F528E5C72100FA832F /* Bitter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2B502F428E5C72100FA832F /* Bitter-Regular.ttf */; };
 		C2C68E7128E1C2DD008C70E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E7028E1C2DD008C70E1 /* AppDelegate.swift */; };
 		C2C68E7328E1C2DD008C70E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E7228E1C2DD008C70E1 /* SceneDelegate.swift */; };
 		C2C68E7528E1C2DD008C70E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E7428E1C2DD008C70E1 /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 		C29F2B8828E33960005D3F44 /* TripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
 		C2B502ED28E5A1F200FA832F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C2B502EF28E5A2D400FA832F /* Lobster-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster-Regular.ttf"; sourceTree = "<group>"; };
+		C2B502F228E5AAD900FA832F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		C2B502F428E5C72100FA832F /* Bitter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bitter-Regular.ttf"; sourceTree = "<group>"; };
 		C2C68E6D28E1C2DD008C70E1 /* ItineraryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItineraryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C68E7028E1C2DD008C70E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2C68E7228E1C2DD008C70E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				C2B502EF28E5A2D400FA832F /* Lobster-Regular.ttf */,
+				C2B502F428E5C72100FA832F /* Bitter-Regular.ttf */,
 				C2B502ED28E5A1F200FA832F /* Theme.swift */,
+				C2B502F228E5AAD900FA832F /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -189,8 +195,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2B502F328E5AAD900FA832F /* Colors.xcassets in Resources */,
 				C2C68E7D28E1C2DE008C70E1 /* LaunchScreen.storyboard in Resources */,
 				C2B502F028E5A2D400FA832F /* Lobster-Regular.ttf in Resources */,
+				C2B502F528E5C72100FA832F /* Bitter-Regular.ttf in Resources */,
 				C29F2B8728E33949005D3F44 /* TripsViewController.storyboard in Resources */,
 				C2C68E7A28E1C2DE008C70E1 /* Assets.xcassets in Resources */,
 			);

@@ -14,7 +14,11 @@ class TripsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        contentView.backgroundColor = Theme.backgroundColor
         cellView.applyDesign()
+        tripLabel.font = Theme.mainFont
+        tripLabel.textColor = Theme.tintColor
+        cellView.backgroundColor = Theme.accentColor
     }
     
     func setup(tripModel: TripModel) {

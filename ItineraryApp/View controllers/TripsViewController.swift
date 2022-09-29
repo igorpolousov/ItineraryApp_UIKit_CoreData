@@ -11,12 +11,17 @@ class TripsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        view.backgroundColor = Theme.backgroundColor
+        tableView.backgroundColor = Theme.backgroundColor
         
         TripFunctions.readTrip { [weak self] in
             self?.tableView.reloadData()
