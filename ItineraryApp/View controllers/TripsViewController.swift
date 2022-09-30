@@ -10,7 +10,7 @@ import UIKit
 class TripsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var addButton: UIButton!
     
     
     // MARK: viewDidLoad
@@ -23,6 +23,8 @@ class TripsViewController: UIViewController {
         view.backgroundColor = Theme.backgroundColor
         tableView.backgroundColor = Theme.backgroundColor
         
+        addButton.backgroundColor = Theme.tintColor
+     
         TripFunctions.readTrip { [weak self] in
             self?.tableView.reloadData()
         }
