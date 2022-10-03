@@ -23,8 +23,7 @@ class TripsViewController: UIViewController {
         view.backgroundColor = Theme.backgroundColor
         tableView.backgroundColor = Theme.backgroundColor
         
-        addButton.backgroundColor = Theme.tintColor
-        addButton.layer.cornerRadius = addButton.frame.height / 2
+        addButton.buttonDesign()
         
      
         TripFunctions.readTrip { [weak self] in
