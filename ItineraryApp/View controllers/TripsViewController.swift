@@ -24,6 +24,8 @@ class TripsViewController: UIViewController {
         tableView.backgroundColor = Theme.backgroundColor
         
         addButton.backgroundColor = Theme.tintColor
+        addButton.layer.cornerRadius = addButton.frame.height / 2
+        
      
         TripFunctions.readTrip { [weak self] in
             self?.tableView.reloadData()
