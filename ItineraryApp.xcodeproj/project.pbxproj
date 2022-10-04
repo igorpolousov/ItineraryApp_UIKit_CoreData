@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C249042C28EC50C000238F91 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249042B28EC50C000238F91 /* PopUpView.swift */; };
+		C249042E28EC543800238F91 /* PopUpViewButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249042D28EC543800238F91 /* PopUpViewButtons.swift */; };
 		C28970F328E4560000D5C817 /* TripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28970F228E4560000D5C817 /* TripsTableViewCell.swift */; };
 		C28970F628E4620700D5C817 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28970F528E4620700D5C817 /* UIViewExtensions.swift */; };
 		C29F2B8728E33949005D3F44 /* TripsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C249042B28EC50C000238F91 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		C249042D28EC543800238F91 /* PopUpViewButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewButtons.swift; sourceTree = "<group>"; };
 		C28970F228E4560000D5C817 /* TripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewCell.swift; sourceTree = "<group>"; };
 		C28970F528E4620700D5C817 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TripsViewController.storyboard; sourceTree = "<group>"; };
@@ -63,6 +67,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C249042A28EC508600238F91 /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+				C249042B28EC50C000238F91 /* PopUpView.swift */,
+				C249042D28EC543800238F91 /* PopUpViewButtons.swift */,
+			);
+			path = CustomControls;
+			sourceTree = "<group>";
+		};
 		C28970F428E461E200D5C817 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +97,8 @@
 		C2B502EC28E5A1D600FA832F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C249042A28EC508600238F91 /* CustomControls */,
+				C28970F428E461E200D5C817 /* Extensions */,
 				C2B502EF28E5A2D400FA832F /* Lobster-Regular.ttf */,
 				C2B502F428E5C72100FA832F /* Bitter-Regular.ttf */,
 				C2B502ED28E5A1F200FA832F /* Theme.swift */,
@@ -112,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				C2B502EC28E5A1D600FA832F /* Resources */,
-				C28970F428E461E200D5C817 /* Extensions */,
 				C2C68E8428E1C69E008C70E1 /* Model */,
 				C29F2B8528E326A8005D3F44 /* View controllers */,
 				C2C68E7028E1C2DD008C70E1 /* AppDelegate.swift */,
@@ -238,7 +252,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C28970F328E4560000D5C817 /* TripsTableViewCell.swift in Sources */,
+				C249042C28EC50C000238F91 /* PopUpView.swift in Sources */,
 				C2CA68C028EB216D00F93737 /* UIButtonExtension.swift in Sources */,
+				C249042E28EC543800238F91 /* PopUpViewButtons.swift in Sources */,
 				C29F2B8928E33960005D3F44 /* TripsViewController.swift in Sources */,
 				C2C68E7528E1C2DD008C70E1 /* ViewController.swift in Sources */,
 				C2C68E8B28E1CB09008C70E1 /* Data.swift in Sources */,

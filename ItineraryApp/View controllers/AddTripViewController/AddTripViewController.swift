@@ -9,7 +9,6 @@ import UIKit
 
 class AddTripViewController: UIViewController {
     
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tripTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
@@ -17,8 +16,9 @@ class AddTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+       
+        titleLabel.font = Theme.mainFont?.withSize(26)
+      
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
