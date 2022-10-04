@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIButton {
-    func buttonDesign() {
+    func floatingActionButtonDesign() {
         self.backgroundColor = Theme.tintColor
         self.layer.cornerRadius = self.frame.height / 2
         self.layer.shadowOpacity = 0.5
