@@ -24,6 +24,8 @@
 		C2C68E8928E1C6E1008C70E1 /* TripFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E8828E1C6E1008C70E1 /* TripFunctions.swift */; };
 		C2C68E8B28E1CB09008C70E1 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68E8A28E1CB09008C70E1 /* Data.swift */; };
 		C2CA68C028EB216D00F93737 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CA68BF28EB216D00F93737 /* UIButtonExtension.swift */; };
+		C2CA68C228EC3F6000F93737 /* AddTripViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2CA68C128EC3F5F00F93737 /* AddTripViewController.storyboard */; };
+		C2CA68C628EC3FDF00F93737 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CA68C528EC3FDF00F93737 /* AddTripViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		C2C68E8828E1C6E1008C70E1 /* TripFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripFunctions.swift; sourceTree = "<group>"; };
 		C2C68E8A28E1CB09008C70E1 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		C2CA68BF28EB216D00F93737 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		C2CA68C128EC3F5F00F93737 /* AddTripViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTripViewController.storyboard; sourceTree = "<group>"; };
+		C2CA68C528EC3FDF00F93737 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +75,8 @@
 		C29F2B8528E326A8005D3F44 /* View controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */,
-				C29F2B8828E33960005D3F44 /* TripsViewController.swift */,
-				C28970F228E4560000D5C817 /* TripsTableViewCell.swift */,
+				C2CA68C428EC3F9400F93737 /* AddTripViewController */,
+				C2CA68C328EC3F7A00F93737 /* TripsViewController */,
 			);
 			path = "View controllers";
 			sourceTree = "<group>";
@@ -140,6 +143,25 @@
 			path = Trip;
 			sourceTree = "<group>";
 		};
+		C2CA68C328EC3F7A00F93737 /* TripsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C29F2B8628E33949005D3F44 /* TripsViewController.storyboard */,
+				C29F2B8828E33960005D3F44 /* TripsViewController.swift */,
+				C28970F228E4560000D5C817 /* TripsTableViewCell.swift */,
+			);
+			path = TripsViewController;
+			sourceTree = "<group>";
+		};
+		C2CA68C428EC3F9400F93737 /* AddTripViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C2CA68C128EC3F5F00F93737 /* AddTripViewController.storyboard */,
+				C2CA68C528EC3FDF00F93737 /* AddTripViewController.swift */,
+			);
+			path = AddTripViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,6 +222,7 @@
 			files = (
 				C2B502F328E5AAD900FA832F /* Colors.xcassets in Resources */,
 				C2C68E7D28E1C2DE008C70E1 /* LaunchScreen.storyboard in Resources */,
+				C2CA68C228EC3F6000F93737 /* AddTripViewController.storyboard in Resources */,
 				C2B502F028E5A2D400FA832F /* Lobster-Regular.ttf in Resources */,
 				C2B502F528E5C72100FA832F /* Bitter-Regular.ttf in Resources */,
 				C29F2B8728E33949005D3F44 /* TripsViewController.storyboard in Resources */,
@@ -219,6 +242,7 @@
 				C29F2B8928E33960005D3F44 /* TripsViewController.swift in Sources */,
 				C2C68E7528E1C2DD008C70E1 /* ViewController.swift in Sources */,
 				C2C68E8B28E1CB09008C70E1 /* Data.swift in Sources */,
+				C2CA68C628EC3FDF00F93737 /* AddTripViewController.swift in Sources */,
 				C2C68E8928E1C6E1008C70E1 /* TripFunctions.swift in Sources */,
 				C2C68E7128E1C2DD008C70E1 /* AppDelegate.swift in Sources */,
 				C2C68E8728E1C6D3008C70E1 /* TripModel.swift in Sources */,
