@@ -12,7 +12,7 @@ class TripFunctions {
     
     // Создать путешествие
     static func createTrip(tripModel: TripModel) {
-        
+        Data.tripModels.append(tripModel)
     }
     
     // Получить данные для таблицы от путешествия

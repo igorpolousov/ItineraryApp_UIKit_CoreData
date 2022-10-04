@@ -14,6 +14,9 @@ class AddTripViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
+    // Call back function
+    var doneSavings: (()->())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -22,6 +25,13 @@ class AddTripViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
+        
+        if let text = tripTextField.text {
+            TripFunctions.createTrip(tripModel: TripModel(title: text))
+        }
+        if let doneSavings = doneSavings {
+            doneSavings()
+        }
         dismiss(animated: true)
     }
     

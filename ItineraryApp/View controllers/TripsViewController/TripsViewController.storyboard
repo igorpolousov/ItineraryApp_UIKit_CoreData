@@ -53,12 +53,12 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjb-Q8-1xb">
-                                <rect key="frame" x="315" y="739" width="56" height="56"/>
+                                <rect key="frame" x="314" y="739" width="57" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="PlusWhiteColor"/>
                                 <connections>
-                                    <segue destination="9JR-8l-tFC" kind="presentation" modalTransitionStyle="crossDissolve" id="J5T-kB-qk5"/>
+                                    <segue destination="9JR-8l-tFC" kind="presentation" identifier="toAddTripViewController" modalTransitionStyle="crossDissolve" id="J5T-kB-qk5"/>
                                 </connections>
                             </button>
                         </subviews>

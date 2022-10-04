@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TripsViewController: UIViewController {
+class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
@@ -25,27 +25,32 @@ class TripsViewController: UIViewController {
         
         addButton.floatingActionButtonDesign()
         
-     
+        
         TripFunctions.readTrip { [weak self] in
             self?.tableView.reloadData()
         }
     }
-}
-
-// MARK: TableView setup
-extension TripsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Data.tripModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TripsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TripsTableViewCell
         cell.setup(tripModel: Data.tripModels[indexPath.row])
-            return cell
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddTripViewController" {
+            let popUp = segue.destination as! AddTripViewController
+            popUp.doneSavings = { [weak self] in
+                self?.tableView.reloadData()
+            }
+        }
     }
 }
