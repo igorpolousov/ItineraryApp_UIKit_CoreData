@@ -97,12 +97,12 @@
 		C2B502EC28E5A1D600FA832F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C249042A28EC508600238F91 /* CustomControls */,
-				C28970F428E461E200D5C817 /* Extensions */,
 				C2B502EF28E5A2D400FA832F /* Lobster-Regular.ttf */,
 				C2B502F428E5C72100FA832F /* Bitter-Regular.ttf */,
 				C2B502ED28E5A1F200FA832F /* Theme.swift */,
 				C2B502F228E5AAD900FA832F /* Colors.xcassets */,
+				C249042A28EC508600238F91 /* CustomControls */,
+				C28970F428E461E200D5C817 /* Extensions */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

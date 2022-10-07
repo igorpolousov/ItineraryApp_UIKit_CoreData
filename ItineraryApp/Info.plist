@@ -26,5 +26,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to your photo library to add more details to your trip</string>
 </dict>
 </plist>

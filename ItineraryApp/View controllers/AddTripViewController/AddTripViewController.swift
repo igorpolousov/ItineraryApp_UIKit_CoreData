@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class AddTripViewController: UIViewController {
     
@@ -13,25 +14,30 @@ class AddTripViewController: UIViewController {
     @IBOutlet weak var tripTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addPhotoButton: UIButton!
     
-    // Call back function
+    // Call back function for sending data to another class "Trips view controller"
     var doneSavings: (()->())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         titleLabel.font = Theme.mainFont?.withSize(26)
-      
+        addPhotoButton.tintColor = Theme.tintColor
+        addPhotoButton.setImage(UIImage(named: "camera"), for: .normal)
+        
+        
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
         tripTextField.rightViewMode = .never
         
         guard tripTextField.text != "", let text = tripTextField.text  else {
-                      //Show warning image if no text were entered
-//            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-//            imageView.image = UIImage(named: "warning")
-//            tripTextField.rightView = imageView
+            //Show warning image if no text were entered
+            //            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+            //            imageView.image = UIImage(named: "warning")
+            //            tripTextField.rightView = imageView
             
             // Alternatives
             
@@ -43,12 +49,12 @@ class AddTripViewController: UIViewController {
             tripTextField.layer.borderWidth = 1
             tripTextField.layer.cornerRadius = 4
             tripTextField.rightViewMode = .always
-        
+            
             return
         }
         
         TripFunctions.createTrip(tripModel: TripModel(title: text))
-                                 
+        
         if let doneSavings = doneSavings {
             doneSavings()
         }
@@ -59,4 +65,34 @@ class AddTripViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    @IBAction func addPhoto(_ sender: UIButton) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            PHPhotoLibrary.requestAuthorization { (status) in
+                DispatchQueue.main.async {
+                    switch status {
+                    case .authorized :
+                        let myPickerController = UIImagePickerController()
+                        myPickerController.sourceType = .photoLibrary
+                        myPickerController.delegate = self
+                        self.present(myPickerController,animated: true)
+                    default:
+                        break
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+extension AddTripViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            imageView.contentMode = .scaleToFill
+            imageView.image = image
+        }
+        dismiss(animated: true)
+    }
 }
