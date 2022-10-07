@@ -61,7 +61,7 @@ class AddTripViewController: UIViewController {
             return
         }
         
-        TripFunctions.createTrip(tripModel: TripModel(title: text))
+        TripFunctions.createTrip(tripModel: TripModel(title: text, image: imageView.image))
         
         if let doneSavings = doneSavings {
             doneSavings()

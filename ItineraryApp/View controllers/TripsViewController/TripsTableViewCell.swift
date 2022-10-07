@@ -11,18 +11,25 @@ class TripsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var tripLabel: UILabel!
+    @IBOutlet weak var tripImgeView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         contentView.backgroundColor = Theme.backgroundColor
+        
         cellView.applyDesign()
         tripLabel.font = Theme.mainFont
         tripLabel.textColor = Theme.tintColor
+        
         cellView.backgroundColor = Theme.accentColor
+        
+        tripImgeView.layer.cornerRadius = cellView.layer.cornerRadius
     }
     
     func setup(tripModel: TripModel) {
         tripLabel.text = tripModel.title
+        tripImgeView.image = tripModel.image
     }
 
 }
