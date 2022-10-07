@@ -24,10 +24,18 @@ class AddTripViewController: UIViewController {
         super.viewDidLoad()
         
         titleLabel.font = Theme.mainFont?.withSize(26)
+        
         addPhotoButton.tintColor = Theme.tintColor
         addPhotoButton.setImage(UIImage(named: "camera"), for: .normal)
         
+        imageView.layer.cornerRadius = 10
         
+        // Drop shadow title
+        titleLabel.layer.shadowColor = UIColor.white.cgColor
+        titleLabel.layer.shadowOpacity = 1
+        titleLabel.layer.shadowOffset = .zero
+        titleLabel.layer.shadowRadius = 6
+  
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
@@ -90,9 +98,13 @@ extension AddTripViewController: UIImagePickerControllerDelegate, UINavigationCo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
-            imageView.contentMode = .scaleToFill
+            imageView.contentMode = .scaleAspectFill
             imageView.image = image
         }
+        dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true)
     }
 }

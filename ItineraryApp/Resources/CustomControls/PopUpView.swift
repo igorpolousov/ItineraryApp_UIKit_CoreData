@@ -18,7 +18,6 @@ class PopUpView: UIView {
         layer.cornerRadius = 10
         layer.borderColor = Theme.tintColor?.cgColor
         layer.borderWidth = 0.5
-        
         backgroundColor = Theme.backgroundColor
     }
 
