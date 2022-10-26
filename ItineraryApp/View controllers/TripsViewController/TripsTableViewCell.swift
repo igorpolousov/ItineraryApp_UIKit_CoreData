@@ -21,6 +21,10 @@ class TripsTableViewCell: UITableViewCell {
         cellView.applyDesign()
         tripLabel.font = Theme.mainFont
         tripLabel.textColor = Theme.tintColor
+        tripLabel.layer.shadowColor = UIColor.white.cgColor
+        tripLabel.layer.shadowOffset = .zero
+        tripLabel.layer.shadowOpacity = 0.7
+        tripLabel.layer.shadowRadius = 1
         
         cellView.backgroundColor = Theme.accentColor
         
