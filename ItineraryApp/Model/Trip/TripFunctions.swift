@@ -37,7 +37,7 @@ class TripFunctions {
     }
     
     // Удалить путешествие
-    static func deletetrip(tripModel: TripModel) {
-        
+    static func deletetrip(index: Int) {
+        Data.tripModels.remove(at: index)
     }
 }
