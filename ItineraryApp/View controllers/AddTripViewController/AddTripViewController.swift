@@ -19,6 +19,7 @@ class AddTripViewController: UIViewController {
     
     // Call back function for sending data to another class "Trips view controller"
     var doneSavings: (()->())?
+    var tripIndexToEdit: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,12 @@ class AddTripViewController: UIViewController {
         titleLabel.layer.shadowOpacity = 1
         titleLabel.layer.shadowOffset = .zero
         titleLabel.layer.shadowRadius = 6
+        
+        if let index = tripIndexToEdit {
+            let trip = Data.tripModels[index]
+            tripTextField.text = trip.title
+            imageView.image = trip.image
+        }
   
     }
     
@@ -60,8 +67,11 @@ class AddTripViewController: UIViewController {
             
             return
         }
-        
-        TripFunctions.createTrip(tripModel: TripModel(title: text, image: imageView.image))
+        if let index = tripIndexToEdit {
+            TripFunctions.updateTrip(at: index, title: text, image: imageView.image)
+        } else {
+            TripFunctions.createTrip(tripModel: TripModel(title: text, image: imageView.image))
+        }
         
         if let doneSavings = doneSavings {
             doneSavings()
