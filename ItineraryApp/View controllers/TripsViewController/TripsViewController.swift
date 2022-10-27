@@ -11,7 +11,10 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet var helpView: UIVisualEffectView!
+    
     var tripIndexToEdit: Int?
+    var helpViewDefaultsKey = "seenTripHelp"
     
     
     // MARK: viewDidLoad
@@ -27,8 +30,25 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         addButton.floatingActionButtonDesign()
         
         
-        TripFunctions.readTrip { [weak self] in
-            self?.tableView.reloadData()
+        TripFunctions.readTrip { [unowned self] in
+            self.tableView.reloadData()
+            
+            if Data.tripModels.count > 0 {
+                if UserDefaults.standard.bool(forKey: helpViewDefaultsKey) ==  false {
+                    view.addSubview(helpView)
+                    helpView.frame = view.frame
+                }
+            }
+        }
+      
+    }
+    
+    @IBAction func closeHelpView(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.3) {
+            self.helpView.alpha = 0
+        } completion: { (success) in
+            self.helpView.removeFromSuperview()
+            UserDefaults.standard.set(true, forKey: self.helpViewDefaultsKey)
         }
     }
     
@@ -96,6 +116,7 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             popUp.doneSavings = { [weak self] in
                 self?.tableView.reloadData()
             }
+            tripIndexToEdit = nil
         }
     }
 }

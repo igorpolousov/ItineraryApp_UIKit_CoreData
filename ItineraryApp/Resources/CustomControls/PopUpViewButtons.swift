@@ -15,7 +15,7 @@ class PopUpViewButtons: UIButton {
         layer.shadowOpacity = 1
         layer.shadowOffset = .zero
         layer.shadowColor = UIColor.darkGray.cgColor
-        layer.cornerRadius = 5
+        layer.cornerRadius = frame.height / 2
         
         backgroundColor = Theme.tintColor
         tintColor = .white
