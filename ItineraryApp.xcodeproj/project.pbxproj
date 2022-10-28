@@ -71,13 +71,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C20EEA12290BEA8A000CC227 /* ActiviriesViewController */ = {
+		C20EEA12290BEA8A000CC227 /* ActivitiesViewController */ = {
 			isa = PBXGroup;
 			children = (
 				C20EEA15290BEB2E000CC227 /* ActivitiesViewController.storyboard */,
 				C20EEA13290BEB08000CC227 /* ActivitiesViewController.swift */,
 			);
-			path = ActiviriesViewController;
+			path = ActivitiesViewController;
 			sourceTree = "<group>";
 		};
 		C249042A28EC508600238F91 /* CustomControls */ = {
@@ -103,7 +103,7 @@
 			children = (
 				C2CA68C428EC3F9400F93737 /* AddTripViewController */,
 				C2CA68C328EC3F7A00F93737 /* TripsViewController */,
-				C20EEA12290BEA8A000CC227 /* ActiviriesViewController */,
+				C20EEA12290BEA8A000CC227 /* ActivitiesViewController */,
 			);
 			path = "View controllers";
 			sourceTree = "<group>";

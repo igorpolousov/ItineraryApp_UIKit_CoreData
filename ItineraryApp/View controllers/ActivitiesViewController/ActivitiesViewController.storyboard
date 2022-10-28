@@ -12,17 +12,31 @@
         <!--Activities View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="ActivitiesViewController" customModule="ItineraryApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivitiesViewController" id="Y6W-OH-hqX" customClass="ActivitiesViewController" customModule="ItineraryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vXu-hN-bJr">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vXu-hN-bJr" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="btp-7u-RL7"/>
+                            <constraint firstItem="vXu-hN-bJr" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="pHE-Pa-08e"/>
+                            <constraint firstAttribute="bottom" secondItem="vXu-hN-bJr" secondAttribute="bottom" id="pza-O8-9eW"/>
+                            <constraint firstAttribute="trailing" secondItem="vXu-hN-bJr" secondAttribute="trailing" id="vCv-Ub-44c"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="vXu-hN-bJr" id="nX8-Vv-hqW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58" y="-2"/>
+            <point key="canvasLocation" x="56.92307692307692" y="-2.1327014218009479"/>
         </scene>
     </scenes>
     <resources>

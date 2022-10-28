@@ -64,6 +64,15 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard(name: "ActivitiesViewController", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: String(describing: ActivitiesViewController.self)) as? ActivitiesViewController {
+            vc.backgroundImage = Data.tripModels[indexPath.row].image
+            vc.tripName = Data.tripModels[indexPath.row].title
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
     }
