@@ -130,6 +130,14 @@
             </objects>
             <point key="canvasLocation" x="56.92307692307692" y="-2.1327014218009479"/>
         </scene>
+        <!--ActivitiesViewController-->
+        <scene sceneID="8RV-YA-aRq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ActivitiesViewController" id="3Un-rs-N8Z" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zvp-Qo-6Go" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="804" y="-78"/>
+        </scene>
         <!--AddTripViewController-->
         <scene sceneID="EQ7-jQ-9CY">
             <objects>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20EEA14290BEB08000CC227 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EEA13290BEB08000CC227 /* ActivitiesViewController.swift */; };
+		C20EEA16290BEB2E000CC227 /* ActivitiesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20EEA15290BEB2E000CC227 /* ActivitiesViewController.storyboard */; };
 		C249042C28EC50C000238F91 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249042B28EC50C000238F91 /* PopUpView.swift */; };
 		C249042E28EC543800238F91 /* PopUpViewButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249042D28EC543800238F91 /* PopUpViewButtons.swift */; };
 		C28970F328E4560000D5C817 /* TripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28970F228E4560000D5C817 /* TripsTableViewCell.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C20EEA13290BEB08000CC227 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
+		C20EEA15290BEB2E000CC227 /* ActivitiesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ActivitiesViewController.storyboard; sourceTree = "<group>"; };
 		C249042B28EC50C000238F91 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		C249042D28EC543800238F91 /* PopUpViewButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewButtons.swift; sourceTree = "<group>"; };
 		C28970F228E4560000D5C817 /* TripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewCell.swift; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C20EEA12290BEA8A000CC227 /* ActiviriesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C20EEA15290BEB2E000CC227 /* ActivitiesViewController.storyboard */,
+				C20EEA13290BEB08000CC227 /* ActivitiesViewController.swift */,
+			);
+			path = ActiviriesViewController;
+			sourceTree = "<group>";
+		};
 		C249042A28EC508600238F91 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +103,7 @@
 			children = (
 				C2CA68C428EC3F9400F93737 /* AddTripViewController */,
 				C2CA68C328EC3F7A00F93737 /* TripsViewController */,
+				C20EEA12290BEA8A000CC227 /* ActiviriesViewController */,
 			);
 			path = "View controllers";
 			sourceTree = "<group>";
@@ -240,6 +254,7 @@
 				C2B502F028E5A2D400FA832F /* Lobster-Regular.ttf in Resources */,
 				C2B502F528E5C72100FA832F /* Bitter-Regular.ttf in Resources */,
 				C29F2B8728E33949005D3F44 /* TripsViewController.storyboard in Resources */,
+				C20EEA16290BEB2E000CC227 /* ActivitiesViewController.storyboard in Resources */,
 				C2C68E7A28E1C2DE008C70E1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +273,7 @@
 				C29F2B8928E33960005D3F44 /* TripsViewController.swift in Sources */,
 				C2C68E7528E1C2DD008C70E1 /* ViewController.swift in Sources */,
 				C2C68E8B28E1CB09008C70E1 /* Data.swift in Sources */,
+				C20EEA14290BEB08000CC227 /* ActivitiesViewController.swift in Sources */,
 				C2CA68C628EC3FDF00F93737 /* AddTripViewController.swift in Sources */,
 				C2C68E8928E1C6E1008C70E1 /* TripFunctions.swift in Sources */,
 				C2C68E7128E1C2DD008C70E1 /* AppDelegate.swift in Sources */,
