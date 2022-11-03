@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C20EEA14290BEB08000CC227 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EEA13290BEB08000CC227 /* ActivitiesViewController.swift */; };
 		C20EEA16290BEB2E000CC227 /* ActivitiesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20EEA15290BEB2E000CC227 /* ActivitiesViewController.storyboard */; };
+		C234CE992913F9DC00E5A628 /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C234CE982913F9DC00E5A628 /* DayModel.swift */; };
+		C234CE9B2913FA0000E5A628 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C234CE9A2913FA0000E5A628 /* ActivityModel.swift */; };
+		C234CE9D2913FC0400E5A628 /* ActivityTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C234CE9C2913FC0400E5A628 /* ActivityTypeEnum.swift */; };
 		C249042C28EC50C000238F91 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249042B28EC50C000238F91 /* PopUpView.swift */; };
 		C249042E28EC543800238F91 /* PopUpViewButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249042D28EC543800238F91 /* PopUpViewButtons.swift */; };
 		C28970F328E4560000D5C817 /* TripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28970F228E4560000D5C817 /* TripsTableViewCell.swift */; };
@@ -35,6 +38,9 @@
 /* Begin PBXFileReference section */
 		C20EEA13290BEB08000CC227 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		C20EEA15290BEB2E000CC227 /* ActivitiesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ActivitiesViewController.storyboard; sourceTree = "<group>"; };
+		C234CE982913F9DC00E5A628 /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
+		C234CE9A2913FA0000E5A628 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
+		C234CE9C2913FC0400E5A628 /* ActivityTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTypeEnum.swift; sourceTree = "<group>"; };
 		C249042B28EC50C000238F91 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		C249042D28EC543800238F91 /* PopUpViewButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewButtons.swift; sourceTree = "<group>"; };
 		C28970F228E4560000D5C817 /* TripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewCell.swift; sourceTree = "<group>"; };
@@ -78,6 +84,23 @@
 				C20EEA13290BEB08000CC227 /* ActivitiesViewController.swift */,
 			);
 			path = ActivitiesViewController;
+			sourceTree = "<group>";
+		};
+		C234CE962913F97C00E5A628 /* Day */ = {
+			isa = PBXGroup;
+			children = (
+				C234CE982913F9DC00E5A628 /* DayModel.swift */,
+			);
+			path = Day;
+			sourceTree = "<group>";
+		};
+		C234CE972913F99A00E5A628 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				C234CE9A2913FA0000E5A628 /* ActivityModel.swift */,
+				C234CE9C2913FC0400E5A628 /* ActivityTypeEnum.swift */,
+			);
+			path = Activity;
 			sourceTree = "<group>";
 		};
 		C249042A28EC508600238F91 /* CustomControls */ = {
@@ -158,6 +181,8 @@
 			children = (
 				C2C68E8A28E1CB09008C70E1 /* Data.swift */,
 				C2C68E8528E1C6A6008C70E1 /* Trip */,
+				C234CE962913F97C00E5A628 /* Day */,
+				C234CE972913F99A00E5A628 /* Activity */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,8 +298,11 @@
 				C29F2B8928E33960005D3F44 /* TripsViewController.swift in Sources */,
 				C2C68E7528E1C2DD008C70E1 /* ViewController.swift in Sources */,
 				C2C68E8B28E1CB09008C70E1 /* Data.swift in Sources */,
+				C234CE9D2913FC0400E5A628 /* ActivityTypeEnum.swift in Sources */,
 				C20EEA14290BEB08000CC227 /* ActivitiesViewController.swift in Sources */,
+				C234CE992913F9DC00E5A628 /* DayModel.swift in Sources */,
 				C2CA68C628EC3FDF00F93737 /* AddTripViewController.swift in Sources */,
+				C234CE9B2913FA0000E5A628 /* ActivityModel.swift in Sources */,
 				C2C68E8928E1C6E1008C70E1 /* TripFunctions.swift in Sources */,
 				C2C68E7128E1C2DD008C70E1 /* AppDelegate.swift in Sources */,
 				C2C68E8728E1C6D3008C70E1 /* TripModel.swift in Sources */,
