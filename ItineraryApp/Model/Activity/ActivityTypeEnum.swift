@@ -10,7 +10,10 @@ import Foundation
 
 enum ActivityType {
     case auto
-    case bicycle
+    case bicyclePlain
+    case bicycleMountain
+    case bicycleMud
+    case waterTransfer
     case flight
     case train
     case suburbanTrain
