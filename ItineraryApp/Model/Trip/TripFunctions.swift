@@ -10,23 +10,35 @@ import UIKit
 
 class TripFunctions {
     
+    
     // Создать путешествие
     static func createTrip(tripModel: TripModel) {
         Data.tripModels.append(tripModel)
     }
     
     // Получить данные для таблицы от путешествия
-    static func readTrip(completion: @escaping ()->()) {
+    static func readTrips(completion: @escaping ()->()) {
         
         DispatchQueue.global(qos: .userInteractive).async {
             // Fake data for building interface model
             if Data.tripModels.count == 0 {
-                Data.tripModels.append(TripModel(title: "Минводы по горам"))
-                Data.tripModels.append(TripModel(title: "Mexico"))
-                Data.tripModels.append(TripModel(title: "Russian trip"))
+                Data.tripModels = MockData.createMockTripData()
             }
             DispatchQueue.main.async {
                 completion()
+            }
+        }
+    }
+    
+    // Получить данные для таблицы по trip id
+    
+    static func readTrip(by id: UUID, completion: @escaping (TripModel?) -> ()) {
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let trip = Data.tripModels.first(where: { $0.id == id })
+            
+            DispatchQueue.main.async {
+                completion(trip)
             }
         }
     }

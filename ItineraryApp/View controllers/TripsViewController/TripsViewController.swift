@@ -20,7 +20,8 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.backButtonTitle = ""
+      
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -30,7 +31,7 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         addButton.floatingActionButtonDesign()
         
         
-        TripFunctions.readTrip { [unowned self] in
+        TripFunctions.readTrips { [unowned self] in
             self.tableView.reloadData()
             
             if Data.tripModels.count > 0 {
@@ -65,10 +66,10 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let trip = Data.tripModels[indexPath.row]
         let storyBoard = UIStoryboard(name: "ActivitiesViewController", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: String(describing: ActivitiesViewController.self)) as? ActivitiesViewController {
-            vc.backgroundImage = Data.tripModels[indexPath.row].image
-            vc.tripName = Data.tripModels[indexPath.row].title
+            vc.tripId = trip.id
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -104,9 +105,7 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        
-        
+      
         let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: @escaping (Bool) -> Void) in
             self.tripIndexToEdit = indexPath.row
             self.performSegue(withIdentifier: "toAddTripViewController", sender: nil)
