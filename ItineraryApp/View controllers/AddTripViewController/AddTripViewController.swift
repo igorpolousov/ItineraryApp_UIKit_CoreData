@@ -32,11 +32,8 @@ class AddTripViewController: UIViewController {
         imageView.layer.cornerRadius = 10
         
         // Drop shadow title
-        titleLabel.layer.shadowColor = UIColor.white.cgColor
-        titleLabel.layer.shadowOpacity = 1
-        titleLabel.layer.shadowOffset = .zero
-        titleLabel.layer.shadowRadius = 6
-        
+        titleLabel.setupWhiteShadow()
+       
         if let index = tripIndexToEdit {
             let trip = Data.tripModels[index]
             tripTextField.text = trip.title

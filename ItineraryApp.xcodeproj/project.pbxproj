@@ -34,6 +34,11 @@
 		C2CA68C028EB216D00F93737 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CA68BF28EB216D00F93737 /* UIButtonExtension.swift */; };
 		C2CA68C228EC3F6000F93737 /* AddTripViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2CA68C128EC3F5F00F93737 /* AddTripViewController.storyboard */; };
 		C2CA68C628EC3FDF00F93737 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CA68C528EC3FDF00F93737 /* AddTripViewController.swift */; };
+		C2CF370D2923C70C0013DDB8 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF370C2923C70C0013DDB8 /* HeaderTableViewCell.swift */; };
+		C2CF370F2923FF3E0013DDB8 /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2CF370E2923FF3E0013DDB8 /* Oswald-Regular.ttf */; };
+		C2CF37112923FFEB0013DDB8 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF37102923FFEB0013DDB8 /* ActivityTableViewCell.swift */; };
+		C2CF37132924025F0013DDB8 /* Bitter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2CF37122924025F0013DDB8 /* Bitter-Bold.ttf */; };
+		C2CF3715292407BE0013DDB8 /* ApplyWhiteShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF3714292407BE0013DDB8 /* ApplyWhiteShadow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +71,11 @@
 		C2CA68BF28EB216D00F93737 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		C2CA68C128EC3F5F00F93737 /* AddTripViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTripViewController.storyboard; sourceTree = "<group>"; };
 		C2CA68C528EC3FDF00F93737 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
+		C2CF370C2923C70C0013DDB8 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		C2CF370E2923FF3E0013DDB8 /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
+		C2CF37102923FFEB0013DDB8 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		C2CF37122924025F0013DDB8 /* Bitter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bitter-Bold.ttf"; sourceTree = "<group>"; };
+		C2CF3714292407BE0013DDB8 /* ApplyWhiteShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyWhiteShadow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +94,8 @@
 			children = (
 				C20EEA15290BEB2E000CC227 /* ActivitiesViewController.storyboard */,
 				C20EEA13290BEB08000CC227 /* ActivitiesViewController.swift */,
+				C2CF370C2923C70C0013DDB8 /* HeaderTableViewCell.swift */,
+				C2CF37102923FFEB0013DDB8 /* ActivityTableViewCell.swift */,
 			);
 			path = ActivitiesViewController;
 			sourceTree = "<group>";
@@ -119,6 +131,7 @@
 			children = (
 				C28970F528E4620700D5C817 /* UIViewExtensions.swift */,
 				C2CA68BF28EB216D00F93737 /* UIButtonExtension.swift */,
+				C2CF3714292407BE0013DDB8 /* ApplyWhiteShadow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -137,9 +150,12 @@
 			isa = PBXGroup;
 			children = (
 				C2B502EF28E5A2D400FA832F /* Lobster-Regular.ttf */,
+				C2CF370E2923FF3E0013DDB8 /* Oswald-Regular.ttf */,
 				C2B502F428E5C72100FA832F /* Bitter-Regular.ttf */,
+				C2CF37122924025F0013DDB8 /* Bitter-Bold.ttf */,
 				C2B502ED28E5A1F200FA832F /* Theme.swift */,
 				C2B502F228E5AAD900FA832F /* Colors.xcassets */,
+				C2C68E7928E1C2DE008C70E1 /* Assets.xcassets */,
 				C249042A28EC508600238F91 /* CustomControls */,
 				C28970F428E461E200D5C817 /* Extensions */,
 			);
@@ -171,7 +187,6 @@
 				C2C68E7028E1C2DD008C70E1 /* AppDelegate.swift */,
 				C2C68E7228E1C2DD008C70E1 /* SceneDelegate.swift */,
 				C2C68E7428E1C2DD008C70E1 /* ViewController.swift */,
-				C2C68E7928E1C2DE008C70E1 /* Assets.xcassets */,
 				C2C68E7B28E1C2DE008C70E1 /* LaunchScreen.storyboard */,
 				C2C68E7E28E1C2DE008C70E1 /* Info.plist */,
 			);
@@ -277,6 +292,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2B502F328E5AAD900FA832F /* Colors.xcassets in Resources */,
+				C2CF37132924025F0013DDB8 /* Bitter-Bold.ttf in Resources */,
+				C2CF370F2923FF3E0013DDB8 /* Oswald-Regular.ttf in Resources */,
 				C2C68E7D28E1C2DE008C70E1 /* LaunchScreen.storyboard in Resources */,
 				C2CA68C228EC3F6000F93737 /* AddTripViewController.storyboard in Resources */,
 				C2B502F028E5A2D400FA832F /* Lobster-Regular.ttf in Resources */,
@@ -305,11 +322,14 @@
 				C234CE9F2914021A00E5A628 /* MockData.swift in Sources */,
 				C20EEA14290BEB08000CC227 /* ActivitiesViewController.swift in Sources */,
 				C234CE992913F9DC00E5A628 /* DayModel.swift in Sources */,
+				C2CF37112923FFEB0013DDB8 /* ActivityTableViewCell.swift in Sources */,
 				C2CA68C628EC3FDF00F93737 /* AddTripViewController.swift in Sources */,
 				C234CE9B2913FA0000E5A628 /* ActivityModel.swift in Sources */,
+				C2CF3715292407BE0013DDB8 /* ApplyWhiteShadow.swift in Sources */,
 				C2C68E8928E1C6E1008C70E1 /* TripFunctions.swift in Sources */,
 				C2C68E7128E1C2DD008C70E1 /* AppDelegate.swift in Sources */,
 				C2C68E8728E1C6D3008C70E1 /* TripModel.swift in Sources */,
+				C2CF370D2923C70C0013DDB8 /* HeaderTableViewCell.swift in Sources */,
 				C2B502EE28E5A1F300FA832F /* Theme.swift in Sources */,
 				C28970F628E4620700D5C817 /* UIViewExtensions.swift in Sources */,
 				C2C68E7328E1C2DD008C70E1 /* SceneDelegate.swift in Sources */,

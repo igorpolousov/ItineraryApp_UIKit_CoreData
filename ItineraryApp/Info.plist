@@ -6,6 +6,8 @@
 	<array>
 		<string>Lobster-Regular.ttf</string>
 		<string>Bitter-Regular.ttf</string>
+		<string>Oswald-Regular.ttf</string>
+		<string>Bitter-Bold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

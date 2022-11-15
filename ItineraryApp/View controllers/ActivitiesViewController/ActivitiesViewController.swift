@@ -15,6 +15,7 @@ class ActivitiesViewController: UIViewController {
     
     var tripId: UUID!
     var tripModel: TripModel?
+    var tableRowHight: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,8 @@ class ActivitiesViewController: UIViewController {
             self?.backgroundImageView.image = model.image
             self?.tableView.reloadData()
         }
+        
+        tableRowHight = (tableView.dequeueReusableCell(withIdentifier: "cell")?.contentView.bounds.height ?? 0) + 5 
     }
     
 }
@@ -45,10 +48,11 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
         return tripModel?.dayModels.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let title = tripModel?.dayModels[section].title ?? ""
-        let subtitle = tripModel?.dayModels[section].subtitle ?? ""
-        return "\(title) \(subtitle)"
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let dayModel = (tripModel?.dayModels[section])!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! HeaderTableViewCell
+        cell.setup(model: dayModel)
+        return cell.contentView
     }
     
     
@@ -58,11 +62,14 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .clear
-        cell.textLabel?.text = tripModel?.dayModels[indexPath.section].activities[indexPath.row].title
-        cell.detailTextLabel?.text = tripModel?.dayModels[indexPath.section].activities[indexPath.row].subTitle
+        let activityModel = (tripModel?.dayModels[indexPath.section].activities[indexPath.row])!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ActivityTableViewCell
+        cell.setup(model: activityModel)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableRowHight
     }
     
     

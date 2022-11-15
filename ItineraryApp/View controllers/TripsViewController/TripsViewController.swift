@@ -21,6 +21,10 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backButtonTitle = ""
+        navigationItem.titleView?.tintColor = Theme.tintColor
+    
+        
+    
       
         tableView.dataSource = self
         tableView.delegate = self

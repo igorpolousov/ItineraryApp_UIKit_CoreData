@@ -11,7 +11,9 @@ class Theme {
     
     // Fonts
     static let mainFont = UIFont(name: "Lobster-Regular", size: 32)
-    static let readFont = UIFont(name: "Bitter-regular", size: 16)
+    static let readFont = UIFont(name: "Bitter-regular", size: 18)
+    static let activityFont = UIFont(name: "Oswald-Regular",size: 16)
+    static let dayFont = UIFont(name: "Bitter-Bold", size: 16)
     
     //Colors
     static let accentColor = UIColor(named: "Accent")
