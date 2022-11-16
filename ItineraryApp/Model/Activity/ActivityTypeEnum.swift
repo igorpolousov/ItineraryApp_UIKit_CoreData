@@ -5,11 +5,11 @@
 //  Created by Igor Polousov on 03.11.2022.
 //
 
-import Foundation
+import UIKit
 
 
 enum ActivityType {
-    case auto
+    case auto 
     case bicyclePlain
     case bicycleMountain
     case bicycleMud

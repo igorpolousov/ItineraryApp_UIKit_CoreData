@@ -23,9 +23,6 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         navigationItem.backButtonTitle = ""
         navigationItem.titleView?.tintColor = Theme.tintColor
     
-        
-    
-      
         tableView.dataSource = self
         tableView.delegate = self
         
