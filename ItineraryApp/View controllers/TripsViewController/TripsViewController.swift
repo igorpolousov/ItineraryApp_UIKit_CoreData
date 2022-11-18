@@ -22,7 +22,7 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         navigationItem.backButtonTitle = ""
         navigationItem.titleView?.tintColor = Theme.tintColor
-    
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -61,7 +61,7 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TripsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TripsTableViewCell.identifier, for: indexPath) as! TripsTableViewCell
         cell.setup(tripModel: Data.tripModels[indexPath.row])
         return cell
     }
