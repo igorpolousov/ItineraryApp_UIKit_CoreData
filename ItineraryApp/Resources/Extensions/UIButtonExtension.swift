@@ -11,7 +11,7 @@ extension UIButton {
     func floatingActionButtonDesign() {
         self.backgroundColor = Theme.tintColor
         self.layer.cornerRadius = self.frame.height / 2
-        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOpacity = 0.8
         self.layer.shadowOffset = CGSize(width: 1, height: 1)
     }
 }

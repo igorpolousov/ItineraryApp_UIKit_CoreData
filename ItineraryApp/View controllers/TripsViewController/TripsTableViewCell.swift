@@ -22,8 +22,11 @@ class TripsTableViewCell: UITableViewCell {
         cellView.applyDesign()
         
         tripLabel.font = Theme.mainFont
-        tripLabel.textColor = Theme.tintColor
-        tripLabel.setupWhiteShadow()
+        tripLabel.textColor = .white
+        tripLabel.layer.shadowOffset = .zero
+        tripLabel.layer.shadowColor = UIColor.black.cgColor
+        tripLabel.layer.shadowRadius = 10
+        tripLabel.layer.shadowOpacity = 1.0
         
         cellView.backgroundColor = Theme.accentColor
         
@@ -34,14 +37,11 @@ class TripsTableViewCell: UITableViewCell {
         tripLabel.text = tripModel.title
         
         if let tripImage = tripModel.image {
-            tripImgeView.alpha = 0.3
+            tripImgeView.alpha = 0.5
             tripImgeView.image = tripImage
             UIView.animate(withDuration: 1) {
                 self.tripImgeView.alpha = 1
             }
-            
         }
-        
     }
-
 }

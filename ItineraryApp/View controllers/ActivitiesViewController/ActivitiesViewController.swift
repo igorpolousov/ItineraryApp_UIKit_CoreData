@@ -11,18 +11,21 @@ class ActivitiesViewController: UIViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var addDayActivityButton: UIButton!
     
     var tripId: UUID!
     var tripModel: TripModel?
     var tableRowHight: CGFloat = 0.0
     
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate =  self
         tableView.backgroundColor = .clear
+        
+        addDayActivityButton.floatingActionButtonDesign()
         
         TripFunctions.readTrip(by: tripId) {[weak self] model in
             guard self == self else { return }
@@ -35,6 +38,18 @@ class ActivitiesViewController: UIViewController {
         }
         
         tableRowHight = (tableView.dequeueReusableCell(withIdentifier: ActivityTableViewCell.identifier)?.contentView.bounds.height ?? 0) + 5 
+    }
+    
+    @IBAction func addDayorActitvityAction(_ sender: UIButton) {
+        let ac = UIAlertController(title: "What would you want to add", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Add day", style: .default,handler: { action in
+            print("Add day")
+        }))
+        ac.addAction(UIAlertAction(title: "Add activity", style: .default, handler: { action in
+            print("Add activity")
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
     }
     
 }
