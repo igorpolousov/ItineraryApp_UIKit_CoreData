@@ -40,6 +40,8 @@
 		C2CF37132924025F0013DDB8 /* Bitter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2CF37122924025F0013DDB8 /* Bitter-Bold.ttf */; };
 		C2CF3715292407BE0013DDB8 /* ApplyWhiteShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF3714292407BE0013DDB8 /* ApplyWhiteShadow.swift */; };
 		C2CF37192927AF7F0013DDB8 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF37182927AF7E0013DDB8 /* UITableViewCellExtension.swift */; };
+		C2CF371C292934440013DDB8 /* AddDayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2CF371B292934440013DDB8 /* AddDayViewController.storyboard */; };
+		C2CF371E2929347F0013DDB8 /* AddDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF371D2929347F0013DDB8 /* AddDayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		C2CF37122924025F0013DDB8 /* Bitter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bitter-Bold.ttf"; sourceTree = "<group>"; };
 		C2CF3714292407BE0013DDB8 /* ApplyWhiteShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyWhiteShadow.swift; sourceTree = "<group>"; };
 		C2CF37182927AF7E0013DDB8 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
+		C2CF371B292934440013DDB8 /* AddDayViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDayViewController.storyboard; sourceTree = "<group>"; };
+		C2CF371D2929347F0013DDB8 /* AddDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				C2CA68C428EC3F9400F93737 /* AddTripViewController */,
+				C2CF371A2929340E0013DDB8 /* AddDayViewController */,
 				C2CA68C328EC3F7A00F93737 /* TripsViewController */,
 				C20EEA12290BEA8A000CC227 /* ActivitiesViewController */,
 			);
@@ -236,6 +241,15 @@
 			path = AddTripViewController;
 			sourceTree = "<group>";
 		};
+		C2CF371A2929340E0013DDB8 /* AddDayViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C2CF371B292934440013DDB8 /* AddDayViewController.storyboard */,
+				C2CF371D2929347F0013DDB8 /* AddDayViewController.swift */,
+			);
+			path = AddDayViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,6 +311,7 @@
 				C2B502F328E5AAD900FA832F /* Colors.xcassets in Resources */,
 				C2CF37132924025F0013DDB8 /* Bitter-Bold.ttf in Resources */,
 				C2CF370F2923FF3E0013DDB8 /* Oswald-Regular.ttf in Resources */,
+				C2CF371C292934440013DDB8 /* AddDayViewController.storyboard in Resources */,
 				C2C68E7D28E1C2DE008C70E1 /* LaunchScreen.storyboard in Resources */,
 				C2CA68C228EC3F6000F93737 /* AddTripViewController.storyboard in Resources */,
 				C2B502F028E5A2D400FA832F /* Lobster-Regular.ttf in Resources */,
@@ -325,6 +340,7 @@
 				C234CE9D2913FC0400E5A628 /* ActivityTypeEnum.swift in Sources */,
 				C234CE9F2914021A00E5A628 /* MockData.swift in Sources */,
 				C20EEA14290BEB08000CC227 /* ActivitiesViewController.swift in Sources */,
+				C2CF371E2929347F0013DDB8 /* AddDayViewController.swift in Sources */,
 				C234CE992913F9DC00E5A628 /* DayModel.swift in Sources */,
 				C2CF37112923FFEB0013DDB8 /* ActivityTableViewCell.swift in Sources */,
 				C2CA68C628EC3FDF00F93737 /* AddTripViewController.swift in Sources */,

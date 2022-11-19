@@ -42,16 +42,24 @@ class ActivitiesViewController: UIViewController {
     
     @IBAction func addDayorActitvityAction(_ sender: UIButton) {
         let ac = UIAlertController(title: "What would you want to add", message: nil, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "Add day", style: .default,handler: { action in
+        ac.addAction(UIAlertAction(title: "Add day", style: .default,handler: { [unowned self] action in
             print("Add day")
+           showAddDayViewController()
+      
         }))
-        ac.addAction(UIAlertAction(title: "Add activity", style: .default, handler: { action in
+        ac.addAction(UIAlertAction(title: "Add activity", style: .default, handler: { [unowned self] action in
             print("Add activity")
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }
     
+    func showAddDayViewController() {
+        let storyboard = UIStoryboard(name: String(describing: AddDayViewController.self), bundle: nil)
+        if let vc = storyboard.instantiateInitialViewController() {
+            present(vc, animated: true)
+        }
+    }
 }
 
 // MARK: Table view data source

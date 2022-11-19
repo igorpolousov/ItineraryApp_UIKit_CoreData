@@ -20,6 +20,7 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = "Trips"
         navigationItem.backButtonTitle = ""
         navigationController?.navigationBar.barTintColor = Theme.backgroundColor
@@ -83,10 +84,8 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, actionPerformed: @escaping (Bool) -> Void) in
-            
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, actionView, actionPerformed: @escaping (Bool) -> Void) in
             let trip = Data.tripModels[indexPath.row]
-            
             let ac = UIAlertController(title: "Delete trip", message: "Are you sure you want to delete \(trip.title)?", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel,handler: { action in
                 actionPerformed(false)
@@ -106,6 +105,7 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         return UISwipeActionsConfiguration(actions: [delete])
     }
+    
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
       

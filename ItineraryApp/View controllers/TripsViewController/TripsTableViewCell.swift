@@ -16,7 +16,6 @@ class TripsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
         contentView.backgroundColor = Theme.backgroundColor
         
         cellView.applyDesign()
