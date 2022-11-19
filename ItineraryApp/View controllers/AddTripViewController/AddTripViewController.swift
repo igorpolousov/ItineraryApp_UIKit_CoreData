@@ -48,9 +48,10 @@ class AddTripViewController: UIViewController {
         
         guard tripTextField.text != "", let text = tripTextField.text  else {
             //Show warning image if no text were entered
-            //            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-            //            imageView.image = UIImage(named: "warning")
-            //            tripTextField.rightView = imageView
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+            imageView.image = UIImage(named: "warning")
+            tripTextField.rightViewMode = .unlessEditing
+            tripTextField.rightView = imageView
             
             // Alternatives
             
@@ -58,10 +59,10 @@ class AddTripViewController: UIViewController {
             //tripTextField.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1) // for adding such a color use = #colorLiteral(
             
             // Сделать цвет рамки другого цвета
-            tripTextField.layer.borderColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-            tripTextField.layer.borderWidth = 1
-            tripTextField.layer.cornerRadius = 4
-            tripTextField.rightViewMode = .always
+//            tripTextField.layer.borderColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+//            tripTextField.layer.borderWidth = 1
+//            tripTextField.layer.cornerRadius = 4
+//            tripTextField.rightViewMode = .always
             
             return
         }

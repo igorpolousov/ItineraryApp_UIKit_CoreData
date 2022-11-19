@@ -47,7 +47,7 @@ class ActivitiesViewController: UIViewController {
            showAddDayViewController()
       
         }))
-        ac.addAction(UIAlertAction(title: "Add activity", style: .default, handler: { [unowned self] action in
+        ac.addAction(UIAlertAction(title: "Add activity", style: .default, handler: { action in
             print("Add activity")
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
