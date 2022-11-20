@@ -46,14 +46,8 @@ class AddDayViewController: UIViewController {
     @IBAction func saveAction(_ sender: UIButton) {
         titleDateTextField.rightViewMode = .never
         
-        guard titleDateTextField.text != "" else {
-            //Show warning image if no text were entered
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-            imageView.image = UIImage(named: "warning")
-            titleDateTextField.rightViewMode = .unlessEditing
-            titleDateTextField.rightView = imageView
-            return
-        }
+        guard titleDateTextField.hasValue else { return }
+          
 //        if let index = tripIndexToEdit {
 //            TripFunctions.updateTrip(at: index, title: text, image: imageView.image)
 //        } else {

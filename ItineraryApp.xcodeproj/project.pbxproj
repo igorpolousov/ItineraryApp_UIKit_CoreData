@@ -42,6 +42,7 @@
 		C2CF37192927AF7F0013DDB8 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF37182927AF7E0013DDB8 /* UITableViewCellExtension.swift */; };
 		C2CF371C292934440013DDB8 /* AddDayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2CF371B292934440013DDB8 /* AddDayViewController.storyboard */; };
 		C2CF371E2929347F0013DDB8 /* AddDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF371D2929347F0013DDB8 /* AddDayViewController.swift */; };
+		C2CF3720292A26040013DDB8 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF371F292A26040013DDB8 /* UITextFieldExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		C2CF37182927AF7E0013DDB8 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
 		C2CF371B292934440013DDB8 /* AddDayViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDayViewController.storyboard; sourceTree = "<group>"; };
 		C2CF371D2929347F0013DDB8 /* AddDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDayViewController.swift; sourceTree = "<group>"; };
+		C2CF371F292A26040013DDB8 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				C28970F528E4620700D5C817 /* UIViewExtensions.swift */,
+				C2CF371F292A26040013DDB8 /* UITextFieldExtension.swift */,
 				C2CA68BF28EB216D00F93737 /* UIButtonExtension.swift */,
 				C2CF3714292407BE0013DDB8 /* ApplyWhiteShadow.swift */,
 				C2CF37182927AF7E0013DDB8 /* UITableViewCellExtension.swift */,
@@ -339,6 +342,7 @@
 				C2C68E8B28E1CB09008C70E1 /* Data.swift in Sources */,
 				C234CE9D2913FC0400E5A628 /* ActivityTypeEnum.swift in Sources */,
 				C234CE9F2914021A00E5A628 /* MockData.swift in Sources */,
+				C2CF3720292A26040013DDB8 /* UITextFieldExtension.swift in Sources */,
 				C20EEA14290BEB08000CC227 /* ActivitiesViewController.swift in Sources */,
 				C2CF371E2929347F0013DDB8 /* AddDayViewController.swift in Sources */,
 				C234CE992913F9DC00E5A628 /* DayModel.swift in Sources */,

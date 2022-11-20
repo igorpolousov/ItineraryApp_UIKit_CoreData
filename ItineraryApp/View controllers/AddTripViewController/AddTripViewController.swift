@@ -46,12 +46,8 @@ class AddTripViewController: UIViewController {
     @IBAction func saveAction(_ sender: UIButton) {
         tripTextField.rightViewMode = .never
         
-        guard tripTextField.text != "", let text = tripTextField.text  else {
-            //Show warning image if no text were entered
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-            imageView.image = UIImage(named: "warning")
-            tripTextField.rightViewMode = .unlessEditing
-            tripTextField.rightView = imageView
+        guard tripTextField.hasValue, let text = tripTextField.text  else {
+        
             
             // Alternatives
             
