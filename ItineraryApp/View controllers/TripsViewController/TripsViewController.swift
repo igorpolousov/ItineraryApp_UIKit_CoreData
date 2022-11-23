@@ -34,7 +34,6 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         addButton.floatingActionButtonDesign()
         
-        
         TripFunctions.readTrips { [unowned self] in
             self.tableView.reloadData()
             

@@ -11,11 +11,11 @@ import UIKit
 struct DayModel {
     
     var id: String!
-    var title: String = ""
+    var title = Date()
     var subtitle: String = ""
     var activities = [ActivityModel]()
     
-    init(title: String, subtitle: String, data: [ActivityModel]? = nil) {
+    init(title: Date, subtitle: String, data: [ActivityModel]? = nil) {
         id = UUID().uuidString
         self.title = title
         self.subtitle = subtitle

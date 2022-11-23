@@ -21,9 +21,9 @@ class MockData {
     
     static func createMockDayModelData() -> [DayModel] {
         var dayModels = [DayModel]()
-        dayModels.append(DayModel(title: "February 20", subtitle: "Train",data: createMockActitvityData()))
-        dayModels.append(DayModel(title: "March 10", subtitle: "Constractions", data: createMockActitvityData()))
-        dayModels.append((DayModel(title: "April 22", subtitle: "Agriculture", data: createMockActitvityData())))
+        dayModels.append(DayModel(title: Date().add(days: 1), subtitle: "Train",data: createMockActitvityData()))
+        dayModels.append(DayModel(title: Date().add(days: 2), subtitle: "Constractions", data: createMockActitvityData()))
+        dayModels.append((DayModel(title: Date().add(days: 3), subtitle: "Agriculture", data: createMockActitvityData())))
         return dayModels
     }
     

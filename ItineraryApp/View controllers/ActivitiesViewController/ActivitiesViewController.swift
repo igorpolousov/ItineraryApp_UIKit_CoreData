@@ -18,6 +18,8 @@ class ActivitiesViewController: UIViewController {
     var tableRowHight: CGFloat = 0.0
     
     // MARK: ViewDidLoad
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,15 +29,7 @@ class ActivitiesViewController: UIViewController {
         
         addDayActivityButton.floatingActionButtonDesign()
         
-        TripFunctions.readTrip(by: tripId) {[weak self] model in
-            guard self == self else { return }
-            self?.tripModel = model
-            
-            guard let  model = model else { return }
-            self?.title = model.title
-            self?.backgroundImageView.image = model.image
-            self?.tableView.reloadData()
-        }
+       updateTableViewWithTripData()
         
         tableRowHight = (tableView.dequeueReusableCell(withIdentifier: ActivityTableViewCell.identifier)?.contentView.bounds.height ?? 0) + 5 
     }
@@ -56,8 +50,30 @@ class ActivitiesViewController: UIViewController {
     
     func showAddDayViewController() {
         let storyboard = UIStoryboard(name: String(describing: AddDayViewController.self), bundle: nil)
-        if let vc = storyboard.instantiateInitialViewController() {
+        if let vc = storyboard.instantiateInitialViewController() as? AddDayViewController {
+            vc.tripIndex = Data.tripModels.firstIndex(where: { tripModel in
+                tripModel.id == tripId
+            })
+            vc.doneSavings = {[weak self] dayModel in
+                guard let self = self else {return}
+                
+                let index = [self.tripModel?.dayModels.count ?? 0]
+                self.tripModel?.dayModels.append(dayModel)
+                self.tableView.insertSections(IndexSet(index), with: UITableView.RowAnimation.automatic)
+            }
             present(vc, animated: true)
+        }
+    }
+    
+    fileprivate func updateTableViewWithTripData() {
+        TripFunctions.readTrip(by: tripId) {[weak self] model in
+            guard self == self else { return }
+            self?.tripModel = model
+            
+            guard let  model = model else { return }
+            self?.title = model.title
+            self?.backgroundImageView.image = model.image
+            self?.tableView.reloadData()
         }
     }
 }

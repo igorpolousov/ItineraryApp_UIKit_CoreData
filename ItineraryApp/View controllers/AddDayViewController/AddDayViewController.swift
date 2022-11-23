@@ -12,29 +12,21 @@ class AddDayViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var addDayLabel: UILabel!
-    @IBOutlet weak var titleDateTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var saveButton: PopUpViewButtons!
     @IBOutlet weak var cancelButton: PopUpViewButtons!
     
     // Call back function for sending data to another class "Trips view controller"
-    var doneSavings: (()->())?
-    var tripIndexToEdit: Int?
+    var doneSavings: ((DayModel)->())?
+    var tripIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        datePicker.frame = CGRect(x: 0, y: 60, width: 360, height: 140)
         addDayLabel.font = Theme.mainFont?.withSize(26)
         // Drop shadow title
         addDayLabel.setupWhiteShadow()
-        
-        if let index = tripIndexToEdit {
-            let trip = Data.tripModels[index]
-            let day = trip.dayModels[index]
-            titleDateTextField.text = day.title
-            imageView.image = trip.image
-            addDayLabel.text = "Edit Trip"
-        }
         
     }
     
@@ -42,20 +34,14 @@ class AddDayViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    
     @IBAction func saveAction(_ sender: UIButton) {
-        titleDateTextField.rightViewMode = .never
-        
-        guard titleDateTextField.hasValue else { return }
           
-//        if let index = tripIndexToEdit {
-//            TripFunctions.updateTrip(at: index, title: text, image: imageView.image)
-//        } else {
-//            TripFunctions.createTrip(tripModel: TripModel(title: text, image: imageView.image))
-//        }
+        let dayModel = DayModel(title: datePicker.date, subtitle: descriptionTextField.text ?? "")
+        
+        DayFunctions.createDay(tripIndex: tripIndex!, dayModel: dayModel)
         
         if let doneSavings = doneSavings {
-            doneSavings()
+            doneSavings(dayModel)
         }
         dismiss(animated: true)
     }
