@@ -20,6 +20,7 @@ class AddDayViewController: UIViewController {
     // Call back function for sending data to another class "Trips view controller"
     var doneSavings: ((DayModel)->())?
     var tripIndex: Int?
+    var tripModel: TripModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,15 +40,30 @@ class AddDayViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
-          
-        let dayModel = DayModel(title: datePicker.date, subtitle: descriptionTextField.text ?? "")
-        
-        DayFunctions.createDay(tripIndex: tripIndex!, dayModel: dayModel)
-        
-        if let doneSavings = doneSavings {
-            doneSavings(dayModel)
+        if dayAlreadyExists(datePicker.date) {
+            let ac = UIAlertController(title: "Such a day already exists", message: "Choose another date", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            present(ac, animated: true)
+        } else {
+            let dayModel = DayModel(title: datePicker.date, subtitle: descriptionTextField.text ?? "")
+            
+            DayFunctions.createDay(tripIndex: tripIndex!, dayModel: dayModel)
+            
+            if let doneSavings = doneSavings {
+                doneSavings(dayModel)
+            }
+            dismiss(animated: true)
         }
-        dismiss(animated: true)
+    }
+    
+    func dayAlreadyExists(_ date: Date) -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        
+        if tripModel.dayModels.contains(where: {$0.title.mediumStyleDate() == date.mediumStyleDate()}) {
+            return true
+        }
+        return false
     }
 
 }

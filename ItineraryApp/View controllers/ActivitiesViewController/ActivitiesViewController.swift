@@ -51,6 +51,7 @@ class ActivitiesViewController: UIViewController {
     func showAddDayViewController() {
         let storyboard = UIStoryboard(name: String(describing: AddDayViewController.self), bundle: nil)
         if let vc = storyboard.instantiateInitialViewController() as? AddDayViewController {
+            vc.tripModel = tripModel
             vc.tripIndex = Data.tripModels.firstIndex(where: { tripModel in
                 tripModel.id == tripId
             })
