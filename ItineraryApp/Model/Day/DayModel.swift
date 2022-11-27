@@ -23,5 +23,17 @@ struct DayModel {
             self.activities = data
         }
     }
+}
+
+
+extension DayModel: Comparable {
+    static func < (lhs: DayModel, rhs: DayModel) -> Bool {
+        return lhs.title < rhs.title
+    }
+    
+    static func == (lhs: DayModel, rhs: DayModel) -> Bool {
+        return lhs.title == rhs.title
+    }
+    
     
 }

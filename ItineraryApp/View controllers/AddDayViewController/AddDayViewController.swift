@@ -34,6 +34,10 @@ class AddDayViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    @IBAction func done(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
     @IBAction func saveAction(_ sender: UIButton) {
           
         let dayModel = DayModel(title: datePicker.date, subtitle: descriptionTextField.text ?? "")

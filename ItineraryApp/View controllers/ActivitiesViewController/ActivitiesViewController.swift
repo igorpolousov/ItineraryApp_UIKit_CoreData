@@ -57,8 +57,10 @@ class ActivitiesViewController: UIViewController {
             vc.doneSavings = {[weak self] dayModel in
                 guard let self = self else {return}
                 
-                let index = [self.tripModel?.dayModels.count ?? 0]
+              //  let index = [self.tripModel?.dayModels.count ?? 0]
                 self.tripModel?.dayModels.append(dayModel)
+                let index = [self.tripModel?.dayModels.firstIndex(of: dayModel) ?? 1]
+                
                 self.tableView.insertSections(IndexSet(index), with: UITableView.RowAnimation.automatic)
             }
             present(vc, animated: true)

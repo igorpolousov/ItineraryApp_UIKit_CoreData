@@ -54,7 +54,10 @@
                                         <rect key="frame" x="8" y="202" width="342" height="34"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="done:" destination="Y6W-OH-hqX" eventType="primaryActionTriggered" id="z9i-Bq-iEZ"/>
+                                        </connections>
                                     </textField>
                                     <datePicker clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="REY-lA-yvK">
                                         <rect key="frame" x="8" y="78" width="341" height="116"/>
