@@ -45,6 +45,8 @@
 		C2CF371E2929347F0013DDB8 /* AddDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF371D2929347F0013DDB8 /* AddDayViewController.swift */; };
 		C2CF3720292A26040013DDB8 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF371F292A26040013DDB8 /* UITextFieldExtension.swift */; };
 		C2CF3722292A29DB0013DDB8 /* DayFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF3721292A29DB0013DDB8 /* DayFunctions.swift */; };
+		C2D76F9D293B759E00B4E00D /* AddActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D76F9C293B759E00B4E00D /* AddActivityViewController.swift */; };
+		C2D76F9F293B75BC00B4E00D /* AddActivityViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D76F9E293B75BC00B4E00D /* AddActivityViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		C2CF371D2929347F0013DDB8 /* AddDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDayViewController.swift; sourceTree = "<group>"; };
 		C2CF371F292A26040013DDB8 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		C2CF3721292A29DB0013DDB8 /* DayFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFunctions.swift; sourceTree = "<group>"; };
+		C2D76F9C293B759E00B4E00D /* AddActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityViewController.swift; sourceTree = "<group>"; };
+		C2D76F9E293B75BC00B4E00D /* AddActivityViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddActivityViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 			children = (
 				C2CA68C428EC3F9400F93737 /* AddTripViewController */,
 				C2CF371A2929340E0013DDB8 /* AddDayViewController */,
+				C2D76F9B293B756000B4E00D /* AddActivityViewController */,
 				C2CA68C328EC3F7A00F93737 /* TripsViewController */,
 				C20EEA12290BEA8A000CC227 /* ActivitiesViewController */,
 			);
@@ -259,6 +264,15 @@
 			path = AddDayViewController;
 			sourceTree = "<group>";
 		};
+		C2D76F9B293B756000B4E00D /* AddActivityViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C2D76F9E293B75BC00B4E00D /* AddActivityViewController.storyboard */,
+				C2D76F9C293B759E00B4E00D /* AddActivityViewController.swift */,
+			);
+			path = AddActivityViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -325,6 +339,7 @@
 				C2CA68C228EC3F6000F93737 /* AddTripViewController.storyboard in Resources */,
 				C2B502F028E5A2D400FA832F /* Lobster-Regular.ttf in Resources */,
 				C2B502F528E5C72100FA832F /* Bitter-Regular.ttf in Resources */,
+				C2D76F9F293B75BC00B4E00D /* AddActivityViewController.storyboard in Resources */,
 				C29F2B8728E33949005D3F44 /* TripsViewController.storyboard in Resources */,
 				C20EEA16290BEB2E000CC227 /* ActivitiesViewController.storyboard in Resources */,
 				C2C68E7A28E1C2DE008C70E1 /* Assets.xcassets in Resources */,
@@ -349,6 +364,7 @@
 				C2C68E8B28E1CB09008C70E1 /* Data.swift in Sources */,
 				C234CE9D2913FC0400E5A628 /* ActivityTypeEnum.swift in Sources */,
 				C234CE9F2914021A00E5A628 /* MockData.swift in Sources */,
+				C2D76F9D293B759E00B4E00D /* AddActivityViewController.swift in Sources */,
 				C2CF3720292A26040013DDB8 /* UITextFieldExtension.swift in Sources */,
 				C20EEA14290BEB08000CC227 /* ActivitiesViewController.swift in Sources */,
 				C2CF371E2929347F0013DDB8 /* AddDayViewController.swift in Sources */,

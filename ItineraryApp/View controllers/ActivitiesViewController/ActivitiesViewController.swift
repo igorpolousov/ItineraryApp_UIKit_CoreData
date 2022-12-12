@@ -34,6 +34,8 @@ class ActivitiesViewController: UIViewController {
         tableRowHight = (tableView.dequeueReusableCell(withIdentifier: ActivityTableViewCell.identifier)?.contentView.bounds.height ?? 0) + 5 
     }
     
+    // MARK: Floating button action - add a day or an activity
+    
     @IBAction func addDayorActitvityAction(_ sender: UIButton) {
         let ac = UIAlertController(title: "What would you want to add", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Add day", style: .default,handler: { [unowned self] action in
@@ -41,9 +43,18 @@ class ActivitiesViewController: UIViewController {
            showAddDayViewController()
       
         }))
-        ac.addAction(UIAlertAction(title: "Add activity", style: .default, handler: { action in
-            print("Add activity")
-        }))
+        
+        let activityAction = UIAlertAction(title: "Add activity", style: .default, handler: {[unowned self] action in
+            showAddActivityViewController()
+        })
+        
+        if tripModel?.dayModels.count == 0 {
+            activityAction.isEnabled = false
+        }
+        // optional check for adding activity
+       // activityAction.isEnabled = tripModel!.dayModels.count > 0
+        
+        ac.addAction(activityAction)
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }
@@ -64,6 +75,17 @@ class ActivitiesViewController: UIViewController {
                 
                 self.tableView.insertSections(IndexSet(index), with: UITableView.RowAnimation.automatic)
             }
+            present(vc, animated: true)
+        }
+    }
+    
+    func showAddActivityViewController() {
+        let storyBoard = UIStoryboard(name: String(describing: AddActivityViewController.self), bundle: nil)
+        if let vc = storyBoard.instantiateInitialViewController() as? AddActivityViewController {
+            vc.tripModel = tripModel
+            vc.tripIndex = Data.tripModels.firstIndex(where: { tripModel in
+                tripModel.id == tripId
+            })
             present(vc, animated: true)
         }
     }
