@@ -38,20 +38,10 @@ class ActivityTableViewCell: UITableViewCell {
             switch model.activityType {
             case .auto:
                 activityImageView.image = UIImage(named: "taxi")
-            case .bicyclePlain:
-                activityImageView.image = UIImage(named: "bicycle")
-            case .bicycleMountain:
-                activityImageView.image = UIImage(named: "bicycle")
-            case .bicycleMud:
-                activityImageView.image = UIImage(named: "bicycle")
-            case .waterTransfer:
-                activityImageView.image = UIImage(named: "bicycle")
             case .flight:
                 activityImageView.image = UIImage(named: "flight")
             case .train:
                 activityImageView.image = UIImage(named: "train")
-            case .suburbanTrain:
-                activityImageView.image = UIImage(named: "suburbanTrain")
             case .food:
                 activityImageView.image = UIImage(named: "hotel")
             case .hotel:

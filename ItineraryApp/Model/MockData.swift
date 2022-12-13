@@ -30,7 +30,7 @@ class MockData {
     static func createMockActitvityData() -> [ActivityModel] {
         var mockActivities = [ActivityModel]()
         mockActivities.append(ActivityModel(title: "Take ticket", subTitle: "Train", activityType: .train))
-        mockActivities.append(ActivityModel(title: "Teke suburban ticket", subTitle: "Suburban train", activityType: .suburbanTrain))
+        mockActivities.append(ActivityModel(title: "Teke suburban ticket", subTitle: "Suburban train", activityType: .train))
         mockActivities.append(ActivityModel(title: "Book a hotel", subTitle: "if needed", activityType: .hotel))
         mockActivities.append(ActivityModel(title: "Order taxi", subTitle: "phone number", activityType: .auto))
         return mockActivities

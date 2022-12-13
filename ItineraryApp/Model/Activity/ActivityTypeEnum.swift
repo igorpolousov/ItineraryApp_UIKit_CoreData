@@ -8,15 +8,10 @@
 import UIKit
 
 
-enum ActivityType {
-    case auto 
-    case bicyclePlain
-    case bicycleMountain
-    case bicycleMud
-    case waterTransfer
+enum ActivityType: Int {
+    case auto
     case flight
     case train
-    case suburbanTrain
     case food
     case hotel
 }

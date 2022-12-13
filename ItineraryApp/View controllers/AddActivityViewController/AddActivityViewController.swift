@@ -20,12 +20,15 @@ class AddActivityViewController: UIViewController {
     @IBOutlet weak var cancelButton: PopUpViewButtons!
     @IBOutlet weak var saveButton: PopUpViewButtons!
     
+    @IBOutlet var activityImageButton: [UIButton]!
+    
+    
     var tripIndex: Int!
     var tripModel: TripModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addActivityLabel.font = Theme.mainFont?.withSize(36)
+        addActivityLabel.font = Theme.mainFont?.withSize(30)
         addActivityLabel.setupWhiteShadow()
         
         activityNamePicker.dataSource = self
@@ -37,8 +40,25 @@ class AddActivityViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
+        let activityType: ActivityType = getSelectedActivityType()
         dismiss(animated: true)
     }
+    
+    func getSelectedActivityType() -> ActivityType {
+        for (index, button) in activityImageButton.enumerated() {
+            if button.tintColor == Theme.tintColor {
+                return ActivityType(rawValue: index) ?? .hotel
+            }
+        }
+        return .hotel
+    }
+    
+    @IBAction func addImageAction(_ sender: UIButton) {
+        activityImageButton.forEach({ $0.tintColor = Theme.accentColor })
+        sender.tintColor = Theme.tintColor
+    }
+    
+    
 }
 
 extension AddActivityViewController: UIPickerViewDataSource, UIPickerViewDelegate {
