@@ -16,15 +16,15 @@ class AddActivityViewController: UIViewController {
     @IBOutlet weak var activityNamePicker: UIPickerView!
     @IBOutlet weak var taskDescription: UITextField!
     @IBOutlet weak var additionalDescription: UITextField!
-    
     @IBOutlet weak var cancelButton: PopUpViewButtons!
     @IBOutlet weak var saveButton: PopUpViewButtons!
-    
     @IBOutlet var activityImageButton: [UIButton]!
     
     
     var tripIndex: Int!
     var tripModel: TripModel!
+    
+    var doneSavings: ((Int, ActivityModel) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,17 @@ class AddActivityViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
+        
+        guard taskDescription.hasValue, let newActivityName = taskDescription.text else { return }
         let activityType: ActivityType = getSelectedActivityType()
+        let dayIndex = activityNamePicker.selectedRow(inComponent: 0)
+        let activityModel = ActivityModel(title: newActivityName, subTitle: additionalDescription.text ?? "", activityType: activityType)
+        ActivityFunctions.createActivity(at: tripIndex, for: dayIndex, using: activityModel)
+        
+        if let doneSavings = doneSavings {
+            doneSavings(dayIndex, activityModel)
+        }
+        
         dismiss(animated: true)
     }
     

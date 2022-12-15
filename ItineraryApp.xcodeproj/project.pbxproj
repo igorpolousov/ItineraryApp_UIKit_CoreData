@@ -47,6 +47,7 @@
 		C2CF3722292A29DB0013DDB8 /* DayFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF3721292A29DB0013DDB8 /* DayFunctions.swift */; };
 		C2D76F9D293B759E00B4E00D /* AddActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D76F9C293B759E00B4E00D /* AddActivityViewController.swift */; };
 		C2D76F9F293B75BC00B4E00D /* AddActivityViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D76F9E293B75BC00B4E00D /* AddActivityViewController.storyboard */; };
+		C2D76FA12948B04200B4E00D /* ActivityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D76FA02948B04200B4E00D /* ActivityFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		C2CF3721292A29DB0013DDB8 /* DayFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFunctions.swift; sourceTree = "<group>"; };
 		C2D76F9C293B759E00B4E00D /* AddActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityViewController.swift; sourceTree = "<group>"; };
 		C2D76F9E293B75BC00B4E00D /* AddActivityViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddActivityViewController.storyboard; sourceTree = "<group>"; };
+		C2D76FA02948B04200B4E00D /* ActivityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			children = (
 				C234CE9A2913FA0000E5A628 /* ActivityModel.swift */,
 				C234CE9C2913FC0400E5A628 /* ActivityTypeEnum.swift */,
+				C2D76FA02948B04200B4E00D /* ActivityFunctions.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				C2CA68C028EB216D00F93737 /* UIButtonExtension.swift in Sources */,
 				C249042E28EC543800238F91 /* PopUpViewButtons.swift in Sources */,
 				C2CF3722292A29DB0013DDB8 /* DayFunctions.swift in Sources */,
+				C2D76FA12948B04200B4E00D /* ActivityFunctions.swift in Sources */,
 				C29F2B8928E33960005D3F44 /* TripsViewController.swift in Sources */,
 				C2C68E7528E1C2DD008C70E1 /* ViewController.swift in Sources */,
 				C2CF37192927AF7F0013DDB8 /* UITableViewCellExtension.swift in Sources */,

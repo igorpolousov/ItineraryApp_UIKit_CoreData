@@ -63,9 +63,7 @@ class ActivitiesViewController: UIViewController {
         let storyboard = UIStoryboard(name: String(describing: AddDayViewController.self), bundle: nil)
         if let vc = storyboard.instantiateInitialViewController() as? AddDayViewController {
             vc.tripModel = tripModel
-            vc.tripIndex = Data.tripModels.firstIndex(where: { tripModel in
-                tripModel.id == tripId
-            })
+            vc.tripIndex = getTripIndex()
             vc.doneSavings = {[weak self] dayModel in
                 guard let self = self else {return}
                 
@@ -79,13 +77,25 @@ class ActivitiesViewController: UIViewController {
         }
     }
     
+    fileprivate func getTripIndex() -> Array<TripModel>.Index? {
+        return Data.tripModels.firstIndex(where: { tripModel in
+            tripModel.id == tripId
+        })
+    }
+    
     func showAddActivityViewController() {
         let storyBoard = UIStoryboard(name: String(describing: AddActivityViewController.self), bundle: nil)
         if let vc = storyBoard.instantiateInitialViewController() as? AddActivityViewController {
             vc.tripModel = tripModel
-            vc.tripIndex = Data.tripModels.firstIndex(where: { tripModel in
-                tripModel.id == tripId
-            })
+            vc.tripIndex = getTripIndex()
+            vc.doneSavings = { [weak self] dayIndex, activityModel in
+                guard let self = self else { return }
+                self.tripModel?.dayModels[dayIndex].activities.append(activityModel)
+                let row = (self.tripModel?.dayModels[dayIndex].activities.count)! - 1
+                let indexPath = IndexPath(row: row, section: dayIndex)
+                self.tableView.insertRows(at: [indexPath], with: .right)
+            }
+            
             present(vc, animated: true)
         }
     }
