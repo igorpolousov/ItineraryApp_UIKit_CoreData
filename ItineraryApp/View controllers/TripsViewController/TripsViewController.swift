@@ -9,6 +9,7 @@ import UIKit
 
 class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet var helpView: UIVisualEffectView!
@@ -44,6 +45,14 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
             }
         }
+        
+        let radians = CGFloat(200 * Double.pi / 180)
+        
+        UIView.animate(withDuration: 0.7, delay: 0,options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.logoImageView.alpha = 0
+            self.logoImageView.transform = CGAffineTransform(rotationAngle: radians).scaledBy(x: 3, y: 3) // 3 is multiplyer here
+        })
+      
       
     }
     
