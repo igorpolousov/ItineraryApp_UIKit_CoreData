@@ -146,5 +146,18 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
         return tableRowHight
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .normal, title: "Delete") { (contextualAction, actionView, actionPerformed: @escaping (Bool) -> Void) in
+            
+        }
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, actionView, actionPerformed: @escaping (Bool) -> Void) in
+            <#code#>
+        }
+        return UISwipeActionsConfiguration(actions: [edit])
+    }
     
 }

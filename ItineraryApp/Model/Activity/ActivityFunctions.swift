@@ -12,4 +12,6 @@ class ActivityFunctions {
         // Replace with real data storage
         Data.tripModels[tripIndex].dayModels[dayIndex].activities.append(activityModel)
     }
+    
+    static func dele
 }
