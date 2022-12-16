@@ -71,8 +71,6 @@ class AddActivityViewController: UITableViewController {
         activityImageButton.forEach({ $0.tintColor = Theme.accentColor })
         sender.tintColor = Theme.tintColor
     }
-    
-    
 }
 
 extension AddActivityViewController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -90,3 +88,4 @@ extension AddActivityViewController: UIPickerViewDataSource, UIPickerViewDelegat
     }
     
 }
+

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kEB-YE-9IL">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -13,67 +13,78 @@
         <!--Add Activity View Controller-->
         <scene sceneID="P16-1G-nsr">
             <objects>
-                <tableViewController id="kEB-YE-9IL" customClass="AddActivityViewController" customModule="ItineraryApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="kEB-YE-9IL" customClass="AddActivityViewController" customModule="ItineraryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="o7q-bz-yBb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40300807823129253" colorSpace="custom" customColorSpace="displayP3"/>
                         <sections>
                             <tableViewSection id="PaN-RO-lSz">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="481" id="RT5-uH-eIq">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="481"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="486" id="RT5-uH-eIq">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="486"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RT5-uH-eIq" id="Zqd-rZ-ECu">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="481"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="486"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8eM-Ns-HlD" customClass="PopUpView" customModule="ItineraryApp" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="30" width="358" height="415"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eM-Ns-HlD" customClass="PopUpView" customModule="ItineraryApp" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="30" width="358" height="420"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j06-hy-SKk">
-                                                            <rect key="frame" x="0.0" y="1" width="358" height="414"/>
+                                                            <rect key="frame" x="0.0" y="1" width="358" height="419"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYh-eq-ge6">
-                                                            <rect key="frame" x="8" y="20" width="342" height="54"/>
+                                                            <rect key="frame" x="8" y="20" width="342" height="55"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <pickerView contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WNV-P6-XoK">
-                                                            <rect key="frame" x="8" y="63" width="342" height="142"/>
+                                                            <rect key="frame" x="8" y="64" width="342" height="142"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                         </pickerView>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What you want to do" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NyM-vM-Q3v">
-                                                            <rect key="frame" x="7" y="288" width="342" height="34"/>
+                                                            <rect key="frame" x="7" y="293" width="342" height="34"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="done:" destination="kEB-YE-9IL" eventType="primaryActionTriggered" id="teZ-GP-yRW"/>
+                                                            </connections>
                                                         </textField>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Actions description(optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b8K-Ce-4Tb">
-                                                            <rect key="frame" x="7" y="330" width="342" height="34"/>
+                                                            <rect key="frame" x="7" y="335" width="342" height="34"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="done:" destination="kEB-YE-9IL" eventType="primaryActionTriggered" id="21X-w9-K5D"/>
+                                                            </connections>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqK-la-v4j" customClass="PopUpViewButtons" customModule="ItineraryApp" customModuleProvider="target">
-                                                            <rect key="frame" x="272" y="372" width="77" height="35"/>
+                                                            <rect key="frame" x="272" y="377" width="77" height="35"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                                            <connections>
+                                                                <action selector="saveAction:" destination="kEB-YE-9IL" eventType="touchUpInside" id="XQI-h3-DdG"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="McV-bM-3lO" customClass="PopUpViewButtons" customModule="ItineraryApp" customModuleProvider="target">
-                                                            <rect key="frame" x="7" y="372" width="77" height="35"/>
+                                                            <rect key="frame" x="7" y="377" width="77" height="35"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                                            <connections>
+                                                                <action selector="cancelAction:" destination="kEB-YE-9IL" eventType="touchUpInside" id="keY-i0-K5T"/>
+                                                            </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" id="8jm-1n-LjY">
                                                             <rect key="frame" x="7" y="229" width="344" height="44"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LH5-1V-6vf">
                                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -84,6 +95,9 @@
                                                                     <color key="tintColor" name="Accent"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="taxi"/>
+                                                                    <connections>
+                                                                        <action selector="addImageAction:" destination="kEB-YE-9IL" eventType="touchUpInside" id="JAy-x2-yuE"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnF-rQ-Wc8">
                                                                     <rect key="frame" x="75" y="0.0" width="44" height="44"/>
@@ -94,6 +108,9 @@
                                                                     <color key="tintColor" name="Accent"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="flight"/>
+                                                                    <connections>
+                                                                        <action selector="addImageAction:" destination="kEB-YE-9IL" eventType="touchUpInside" id="AJT-4w-jBX"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCQ-bj-rIl">
                                                                     <rect key="frame" x="150" y="0.0" width="44" height="44"/>
@@ -104,6 +121,9 @@
                                                                     <color key="tintColor" name="Accent"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="train"/>
+                                                                    <connections>
+                                                                        <action selector="addImageAction:" destination="kEB-YE-9IL" eventType="touchUpInside" id="DNF-01-qOb"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POV-G1-tYt">
                                                                     <rect key="frame" x="225" y="0.0" width="44" height="44"/>
@@ -114,6 +134,9 @@
                                                                     <color key="tintColor" name="Accent"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="food"/>
+                                                                    <connections>
+                                                                        <action selector="addImageAction:" destination="kEB-YE-9IL" eventType="touchUpInside" id="2lG-6W-QEy"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Hg-Wo-nEw">
                                                                     <rect key="frame" x="300" y="0.0" width="44" height="44"/>
@@ -124,14 +147,27 @@
                                                                     <color key="tintColor" name="Accent"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="hotel"/>
+                                                                    <connections>
+                                                                        <action selector="addImageAction:" destination="kEB-YE-9IL" eventType="touchUpInside" id="5RB-5X-wLE"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="420" id="ONh-kz-k27"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.39631164965986393" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstItem="8eM-Ns-HlD" firstAttribute="leading" secondItem="Zqd-rZ-ECu" secondAttribute="leading" constant="16" id="XiQ-kG-rQS"/>
+                                                <constraint firstAttribute="trailing" secondItem="8eM-Ns-HlD" secondAttribute="trailing" constant="19" id="uby-wf-aUC"/>
+                                                <constraint firstItem="8eM-Ns-HlD" firstAttribute="top" secondItem="Zqd-rZ-ECu" secondAttribute="top" constant="30" id="unH-vU-OGb"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.39721513605442177" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -142,8 +178,18 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="activityNamePicker" destination="WNV-P6-XoK" id="TIx-94-eCQ"/>
                         <outlet property="addActivityImageView" destination="j06-hy-SKk" id="477-67-dBN"/>
                         <outlet property="addActivityLabel" destination="YYh-eq-ge6" id="ioa-7h-8zn"/>
+                        <outlet property="additionalDescription" destination="b8K-Ce-4Tb" id="13Z-N0-iNN"/>
+                        <outlet property="cancelButton" destination="McV-bM-3lO" id="0Jr-cA-FTT"/>
+                        <outlet property="saveButton" destination="sqK-la-v4j" id="oED-pZ-2CE"/>
+                        <outlet property="taskDescription" destination="NyM-vM-Q3v" id="hxM-gz-xDq"/>
+                        <outletCollection property="activityImageButton" destination="LH5-1V-6vf" collectionClass="NSMutableArray" id="Ndg-js-eqd"/>
+                        <outletCollection property="activityImageButton" destination="CnF-rQ-Wc8" collectionClass="NSMutableArray" id="6Fq-i4-44k"/>
+                        <outletCollection property="activityImageButton" destination="cCQ-bj-rIl" collectionClass="NSMutableArray" id="b2Z-7Q-vXq"/>
+                        <outletCollection property="activityImageButton" destination="POV-G1-tYt" collectionClass="NSMutableArray" id="g4j-7d-YrK"/>
+                        <outletCollection property="activityImageButton" destination="4Hg-Wo-nEw" collectionClass="NSMutableArray" id="YKW-cq-Raq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HxZ-5Z-SnS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
