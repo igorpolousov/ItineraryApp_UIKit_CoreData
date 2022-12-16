@@ -13,5 +13,4 @@ class ActivityFunctions {
         Data.tripModels[tripIndex].dayModels[dayIndex].activities.append(activityModel)
     }
     
-    static func dele
 }

@@ -148,15 +148,19 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "Delete") { (contextualAction, actionView, actionPerformed: @escaping (Bool) -> Void) in
-            
+            // here the code for delete action
         }
+        delete.image = UIImage(named: "delete")
+        delete.backgroundColor = Theme.tintColor
         return UISwipeActionsConfiguration(actions: [delete])
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, actionView, actionPerformed: @escaping (Bool) -> Void) in
-            <#code#>
+            // here the code for edit action
         }
+        edit.image = UIImage(named: "pencil")
+        edit.backgroundColor = Theme.swipeEditColor
         return UISwipeActionsConfiguration(actions: [edit])
     }
     

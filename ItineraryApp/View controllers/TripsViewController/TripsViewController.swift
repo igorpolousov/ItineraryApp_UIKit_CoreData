@@ -126,7 +126,7 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             actionPerformed(true)
             
         }
-        edit.image = UIImage(systemName: "pencil")
+        edit.image = UIImage(named: "pencil")
         edit.backgroundColor = Theme.swipeEditColor
         return UISwipeActionsConfiguration(actions: [edit])
     }
