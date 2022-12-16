@@ -77,7 +77,7 @@ class ActivitiesViewController: UIViewController {
         }
     }
     
-    fileprivate func getTripIndex() -> Array<TripModel>.Index? {
+    fileprivate func getTripIndex() -> Array<TripModel>.Index! {
         return Data.tripModels.firstIndex(where: { tripModel in
             tripModel.id == tripId
         })
@@ -147,8 +147,28 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let activityModel = tripModel!.dayModels[indexPath.section].activities[indexPath.row]
+        
         let delete = UIContextualAction(style: .normal, title: "Delete") { (contextualAction, actionView, actionPerformed: @escaping (Bool) -> Void) in
             // here the code for delete action
+            let ac = UIAlertController(title: "Delete", message: "Are you sure you want to delete this activity \(activityModel.title)?", preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+                actionPerformed(false) // for remove row in initial position
+            }
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+                // perform delete
+                ActivityFunctions.deleteActivity(at: self.getTripIndex(), for: indexPath.section, using: activityModel)
+                self.tripModel!.dayModels[indexPath.section].activities.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                actionPerformed(true)
+            }
+            
+            ac.addAction(cancelAction)
+            ac.addAction(deleteAction)
+            self.present(ac, animated: true)
         }
         delete.image = UIImage(named: "delete")
         delete.backgroundColor = Theme.tintColor
