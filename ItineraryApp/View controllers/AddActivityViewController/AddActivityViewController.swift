@@ -35,6 +35,10 @@ class AddActivityViewController: UIViewController {
         activityNamePicker.delegate = self
     }
     
+    @IBAction func done(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
     @IBAction func cancelAction(_ sender: Any) {
         dismiss(animated: true)
     }
