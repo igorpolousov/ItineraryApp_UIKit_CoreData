@@ -59,7 +59,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="travel" translatesAutoresizingMaskIntoConstraints="NO" id="TdC-c6-njM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="travel1" translatesAutoresizingMaskIntoConstraints="NO" id="TdC-c6-njM">
                                 <rect key="frame" x="75" y="302" width="240" height="240"/>
                                 <color key="tintColor" name="Tint"/>
                                 <constraints>
@@ -183,7 +183,7 @@
         <image name="DeleteSupport" width="285" height="106"/>
         <image name="EditSupport" width="286" height="107"/>
         <image name="PlusWhiteColor" width="595" height="842"/>
-        <image name="travel" width="240" height="240"/>
+        <image name="travel1" width="512" height="512"/>
         <namedColor name="Background">
             <color red="0.70588235294117652" green="0.76078431372549016" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

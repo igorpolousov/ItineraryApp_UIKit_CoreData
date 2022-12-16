@@ -48,9 +48,12 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let radians = CGFloat(200 * Double.pi / 180)
         
-        UIView.animate(withDuration: 0.7, delay: 0,options: UIView.AnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 1.2, delay: 0,options: UIView.AnimationOptions.curveEaseIn, animations: {
             self.logoImageView.alpha = 0
-            self.logoImageView.transform = CGAffineTransform(rotationAngle: radians).scaledBy(x: 3, y: 3) // 3 is multiplyer here
+            self.logoImageView.transform = CGAffineTransform(rotationAngle: radians)
+                .scaledBy(x: 3, y: 3) // 3 is multiplyer here
+            let yRotation = CATransform3DMakeRotation(radians, 0, radians, 0)
+            self.logoImageView.layer.transform = CATransform3DConcat(self.logoImageView.layer.transform, yRotation)
         })
       
       
