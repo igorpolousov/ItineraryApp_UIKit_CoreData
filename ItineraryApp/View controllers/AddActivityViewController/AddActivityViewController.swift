@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddActivityViewController: UIViewController {
+class AddActivityViewController: UITableViewController {
   
     
     
