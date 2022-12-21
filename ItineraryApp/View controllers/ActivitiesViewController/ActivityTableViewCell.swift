@@ -27,8 +27,10 @@ class ActivityTableViewCell: UITableViewCell {
         
         titleLabel.font = Theme.activityFont
         subtitleLabel.font = Theme.activityFont
-        titleLabel.setupWhiteShadow()
-        subtitleLabel.setupWhiteShadow()
+        titleLabel.textColor = .lightGray
+        subtitleLabel.textColor = .lightGray
+//        titleLabel.setupWhiteShadow()
+//        subtitleLabel.setupWhiteShadow()
         titleLabel.text = model.title
         subtitleLabel.text = model.subTitle
 

@@ -217,11 +217,11 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
                     let lastIndex = (self.tripModel?.dayModels[newDayIndex].activities.count)
                     self.tripModel?.dayModels[newDayIndex].activities.insert(activityModel, at: lastIndex!)
                     // 3. Update table rows
-                    tableView.performBatchUpdates {
+                    tableView.performBatchUpdates({
                         tableView.deleteRows(at: [indexPath], with: .fade)
                         let insertIndexPath = IndexPath(row: lastIndex!, section: newDayIndex)
                         tableView.insertRows(at: [insertIndexPath], with: .right)
-                    }
+                    })
                 }
             }
             self.present(vc, animated: true)

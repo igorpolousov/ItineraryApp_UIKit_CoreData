@@ -70,13 +70,27 @@ class AddActivityViewController: UITableViewController {
         
         guard taskDescription.hasValue, let newActivityName = taskDescription.text else { return }
         let activityType: ActivityType = getSelectedActivityType()
-        // TODO: make component number last in list to select( when selecting day, suggest last day in picker view)
-        let dayIndex = activityNamePicker.selectedRow(inComponent: 0)
-        let activityModel = ActivityModel(title: newActivityName, subTitle: additionalDescription.text ?? "", activityType: activityType)
-        ActivityFunctions.createActivity(at: tripIndex, for: dayIndex, using: activityModel)
+        let newDayIndex = activityNamePicker.selectedRow(inComponent: 0)
         
-        if let doneSavings = doneSavings {
-            doneSavings(dayIndex, activityModel)
+        if activityModelToEdit != nil {
+            // Update Activity
+            activityModelToEdit.activityType = activityType
+            activityModelToEdit.title = newActivityName
+            activityModelToEdit.subTitle = additionalDescription.text ?? ""
+            
+            ActivityFunctions.updateActivity(at: tripIndex, oldDayIndex: dayIndexToEdit, newDayIndex: newDayIndex, using: activityModelToEdit)
+            if let doneUpdating = doneUpdating, let oldDayIndex = dayIndexToEdit {
+                doneUpdating(oldDayIndex, newDayIndex, activityModelToEdit)
+            }
+            
+        } else {
+            // New activity
+            let activityModel = ActivityModel(title: newActivityName, subTitle: additionalDescription.text ?? "", activityType: activityType)
+            ActivityFunctions.createActivity(at: tripIndex, for: newDayIndex, using: activityModel)
+            
+            if let doneSavings = doneSavings {
+                doneSavings(newDayIndex, activityModel)
+            }
         }
         
         dismiss(animated: true)
