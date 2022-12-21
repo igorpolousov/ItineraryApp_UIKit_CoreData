@@ -18,10 +18,10 @@ class ActivitiesViewController: UIViewController {
     var tableRowHight: CGFloat = 0.0
     
     // MARK: ViewDidLoad
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(toggleEditMode))
         
         tableView.dataSource = self
         tableView.delegate =  self
@@ -34,8 +34,12 @@ class ActivitiesViewController: UIViewController {
         tableRowHight = (tableView.dequeueReusableCell(withIdentifier: ActivityTableViewCell.identifier)?.contentView.bounds.height ?? 0) + 5 
     }
     
-    // MARK: Floating button action - add a day or an activity
+    @objc func toggleEditMode(){
+        navigationItem.rightBarButtonItem?.title = navigationItem.rightBarButtonItem?.title == "Edit" ? "Done" : "Edit"
+        tableView.isEditing.toggle()
+    }
     
+    // MARK: Floating button action - add a day or an activity
     @IBAction func addDayorActitvityAction(_ sender: UIButton) {
         let ac = UIAlertController(title: "What would you want to add", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Add day", style: .default,handler: { [unowned self] action in
@@ -232,4 +236,20 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
         return UISwipeActionsConfiguration(actions: [edit])
     }
     
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        // 1. Get the Current Activity
+        let activityModel = (tripModel?.dayModels[sourceIndexPath.section].activities[sourceIndexPath.row])!
+        
+        // 2. Delete activity from old location
+        tripModel?.dayModels[sourceIndexPath.section].activities.remove(at: sourceIndexPath.row)
+        
+        // 3. Insert Activity to a new day
+        tripModel?.dayModels[destinationIndexPath.section].activities.insert(activityModel, at: destinationIndexPath.row)
+        
+        // 4. Update the data store
+        ActivityFunctions.reorderActivity(at: getTripIndex(), oldDayIndex: sourceIndexPath.section, newDayIndex: destinationIndexPath.section, newActivityIndex: destinationIndexPath.row, activityModel: activityModel)
+    }
 }
