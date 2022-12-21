@@ -23,9 +23,16 @@ class AddActivityViewController: UITableViewController {
     
     var tripIndex: Int!
     var tripModel: TripModel!
-    
     var doneSavings: ((Int, ActivityModel) -> ())?
     
+    // For editing activities
+    var dayIndexToEdit: Int! // Needed for saving
+    var activityModelToEdit: ActivityModel! // Needed for showing days in picker view
+    var doneUpdating: ((Int, Int, ActivityModel) -> ())?
+    
+    
+    
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         addActivityLabel.font = Theme.mainFont?.withSize(30)
@@ -33,6 +40,22 @@ class AddActivityViewController: UITableViewController {
         
         activityNamePicker.dataSource = self
         activityNamePicker.delegate = self
+        
+        if let dayIndex = dayIndexToEdit, let activityModel = activityModelToEdit {
+            // Update activity: Populate the pop up
+            addActivityLabel.text = "Edit Activity"
+            
+            // Select the Day in the picker view
+            activityNamePicker.selectRow(dayIndex, inComponent: 0, animated: true)
+            
+            // Populate the activity data
+            addImageAction(activityImageButton[activityModel.activityType.rawValue])
+            taskDescription.text = activityModel.title
+            additionalDescription.text = activityModel.subTitle
+        } else {
+            // New Activity: Set default values
+            addImageAction(activityImageButton[ActivityType.hotel.rawValue])
+        }
     }
     
     @IBAction func done(_ sender: UITextField) {
@@ -47,6 +70,7 @@ class AddActivityViewController: UITableViewController {
         
         guard taskDescription.hasValue, let newActivityName = taskDescription.text else { return }
         let activityType: ActivityType = getSelectedActivityType()
+        // TODO: make component number last in list to select( when selecting day, suggest last day in picker view)
         let dayIndex = activityNamePicker.selectedRow(inComponent: 0)
         let activityModel = ActivityModel(title: newActivityName, subTitle: additionalDescription.text ?? "", activityType: activityType)
         ActivityFunctions.createActivity(at: tripIndex, for: dayIndex, using: activityModel)

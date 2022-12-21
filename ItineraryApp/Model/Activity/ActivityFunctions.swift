@@ -39,8 +39,8 @@ class ActivityFunctions {
         // Replace with real data store
         
         // 1. Remove activity from old location
-        let dayModel = Data.tripModels[tripIndex].dayModels[oldDayIndex]
-        let oldActivityIndex = (dayModel.activities.firstIndex(of: activityModel))
+        let oldDayModel = Data.tripModels[tripIndex].dayModels[oldDayIndex]
+        let oldActivityIndex = (oldDayModel.activities.firstIndex(of: activityModel))
         Data.tripModels[tripIndex].dayModels[newDayIndex].activities.remove(at: oldDayIndex)
         
         // 2. Insert activity to a new location

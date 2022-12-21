@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +12,7 @@
         <!--Add Activity View Controller-->
         <scene sceneID="P16-1G-nsr">
             <objects>
-                <tableViewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="kEB-YE-9IL" customClass="AddActivityViewController" customModule="ItineraryApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddActivityViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="kEB-YE-9IL" customClass="AddActivityViewController" customModule="ItineraryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="o7q-bz-yBb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,7 +91,6 @@
                                                                         <constraint firstAttribute="height" constant="44" id="BDM-0s-Jvi"/>
                                                                         <constraint firstAttribute="width" constant="44" id="W6K-aj-5Q3"/>
                                                                     </constraints>
-                                                                    <color key="tintColor" name="Accent"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="taxi"/>
                                                                     <connections>
@@ -105,7 +103,6 @@
                                                                         <constraint firstAttribute="width" constant="44" id="f1G-3S-tb4"/>
                                                                         <constraint firstAttribute="height" constant="44" id="hYX-EC-uYV"/>
                                                                     </constraints>
-                                                                    <color key="tintColor" name="Accent"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="flight"/>
                                                                     <connections>
@@ -118,7 +115,6 @@
                                                                         <constraint firstAttribute="width" constant="44" id="3MB-Rb-pyJ"/>
                                                                         <constraint firstAttribute="height" constant="44" id="7iD-e1-4mc"/>
                                                                     </constraints>
-                                                                    <color key="tintColor" name="Accent"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="train"/>
                                                                     <connections>
@@ -131,7 +127,6 @@
                                                                         <constraint firstAttribute="height" constant="44" id="wo8-mO-Asn"/>
                                                                         <constraint firstAttribute="width" constant="44" id="yY9-aA-60d"/>
                                                                     </constraints>
-                                                                    <color key="tintColor" name="Accent"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="food"/>
                                                                     <connections>
@@ -144,7 +139,6 @@
                                                                         <constraint firstAttribute="height" constant="44" id="WiZ-Wb-1Ly"/>
                                                                         <constraint firstAttribute="width" constant="44" id="q5j-sA-iLg"/>
                                                                     </constraints>
-                                                                    <color key="tintColor" name="Accent"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="hotel"/>
                                                                     <connections>
@@ -203,9 +197,6 @@
         <image name="hotel" width="44" height="44"/>
         <image name="taxi" width="44" height="44"/>
         <image name="train" width="44" height="44"/>
-        <namedColor name="Accent">
-            <color red="0.31372549019607843" green="0.28235294117647058" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
