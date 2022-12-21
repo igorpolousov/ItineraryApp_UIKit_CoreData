@@ -8,9 +8,7 @@
 import UIKit
 
 class AddActivityViewController: UITableViewController {
-  
-    
-    
+ 
     @IBOutlet weak var addActivityImageView: UIImageView!
     @IBOutlet weak var addActivityLabel: UILabel!
     @IBOutlet weak var activityNamePicker: UIPickerView!
@@ -122,7 +120,7 @@ extension AddActivityViewController: UIPickerViewDataSource, UIPickerViewDelegat
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return tripModel.dayModels[row].title.mediumStyleDate()
+      return tripModel.dayModels[row].title.mediumStyleDate()
     }
     
 }
