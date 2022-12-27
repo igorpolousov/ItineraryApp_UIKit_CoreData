@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ActivitiesViewController: UIViewController {
     
@@ -16,6 +17,8 @@ class ActivitiesViewController: UIViewController {
     var tripId: UUID!
     var tripModel: TripModel?
     var tableRowHight: CGFloat = 0.0
+    
+    lazy var coreDataStack = CoreDataStack(modelName: "ItineraryApp")
     
     // MARK: ViewDidLoad
     override func viewDidLoad() {

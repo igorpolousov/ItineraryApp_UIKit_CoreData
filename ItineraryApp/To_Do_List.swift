@@ -8,4 +8,7 @@
 // 1. Add additional color theme ( blue gray light blue)
 // 2. Make correct selection on pickers
 // 3. Make more helpful hints
+// 4. Add Core Data
+// 5. Add GCD
+// 6. Add Tests
 

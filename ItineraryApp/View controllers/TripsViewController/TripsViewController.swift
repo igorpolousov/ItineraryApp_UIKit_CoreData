@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,6 +17,8 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var tripIndexToEdit: Int?
     var helpViewDefaultsKey = "seenTripHelp"
+    
+    lazy var coreDataStack = CoreDataStack(modelName: "ItineraryApp")
     
     
     // MARK: viewDidLoad
