@@ -208,6 +208,7 @@
 		C2C68E6428E1C2DD008C70E1 = {
 			isa = PBXGroup;
 			children = (
+				C24E8F7129532C0A00E64E98 /* To_Do_List.swift */,
 				C2D37D7D295B17FE00ED846B /* CoreData */,
 				C2C68E6F28E1C2DD008C70E1 /* ItineraryApp */,
 				C2C68E6E28E1C2DD008C70E1 /* Products */,
@@ -225,7 +226,6 @@
 		C2C68E6F28E1C2DD008C70E1 /* ItineraryApp */ = {
 			isa = PBXGroup;
 			children = (
-				C24E8F7129532C0A00E64E98 /* To_Do_List.swift */,
 				C2B502EC28E5A1D600FA832F /* Resources */,
 				C2C68E8428E1C69E008C70E1 /* Model */,
 				C29F2B8528E326A8005D3F44 /* View controllers */,

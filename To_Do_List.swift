@@ -12,3 +12,8 @@
 // 5. Add GCD
 // 6. Add Tests
 
+// Virsion 2
+// 1. Add Day options: Add CRUD function in Day Functions class
+// Delete Day option and delete all activities in day
+// Update Day option. Can update Date and Description
+
