@@ -2,7 +2,7 @@
 //  Trip+CoreDataClass.swift
 //  ItineraryApp
 //
-//  Created by Igor Polousov on 27.12.2022.
+//  Created by Igor Polousov on 30.12.2022.
 //
 //
 

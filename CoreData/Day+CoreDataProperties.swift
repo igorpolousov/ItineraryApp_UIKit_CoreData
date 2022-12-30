@@ -2,7 +2,7 @@
 //  Day+CoreDataProperties.swift
 //  ItineraryApp
 //
-//  Created by Igor Polousov on 27.12.2022.
+//  Created by Igor Polousov on 30.12.2022.
 //
 //
 
@@ -16,8 +16,8 @@ extension Day {
         return NSFetchRequest<Day>(entityName: "Day")
     }
 
-    @NSManaged public var id: UUID?
-    @NSManaged public var title: Date?
+    @NSManaged public var id: String?
+    @NSManaged public var title: String?
     @NSManaged public var subtitle: String?
     @NSManaged public var trip: Trip?
     @NSManaged public var activity: NSOrderedSet?

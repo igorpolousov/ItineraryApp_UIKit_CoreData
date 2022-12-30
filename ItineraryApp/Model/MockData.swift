@@ -11,7 +11,6 @@ class MockData {
     
     static func createMockTripData() -> [TripModel] {
         var mockTrips = [TripModel]()
-        // DownLoad and add images to app
             mockTrips.append(TripModel(title: "Минеральные воды",image: UIImage(named: "min"), dayModels: createMockDayModelData()))
             mockTrips.append(TripModel(title: "Московская область", image: UIImage(named: "mos")))
             mockTrips.append(TripModel(title: "Ярославская область", image: UIImage(named: "yar")))

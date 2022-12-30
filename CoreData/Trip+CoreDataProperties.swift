@@ -2,7 +2,7 @@
 //  Trip+CoreDataProperties.swift
 //  ItineraryApp
 //
-//  Created by Igor Polousov on 27.12.2022.
+//  Created by Igor Polousov on 30.12.2022.
 //
 //
 
@@ -18,7 +18,8 @@ extension Trip {
 
     @NSManaged public var title: String?
     @NSManaged public var id: UUID?
-    @NSManaged public var image: NSData? 
+    @NSManaged public var image: NSData?
+    @NSManaged public var myTrips: MyTrips?
     @NSManaged public var day: NSOrderedSet?
 
 }

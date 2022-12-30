@@ -2,7 +2,7 @@
 //  Activity+CoreDataProperties.swift
 //  ItineraryApp
 //
-//  Created by Igor Polousov on 27.12.2022.
+//  Created by Igor Polousov on 30.12.2022.
 //
 //
 
@@ -16,9 +16,9 @@ extension Activity {
         return NSFetchRequest<Activity>(entityName: "Activity")
     }
 
-    @NSManaged public var id: UUID?
     @NSManaged public var title: String?
-    @NSManaged public var subtitle: String?
+    @NSManaged public var subttitle: String?
+    @NSManaged public var id: String?
     @NSManaged public var activityType: NSObject?
     @NSManaged public var day: Day?
 
