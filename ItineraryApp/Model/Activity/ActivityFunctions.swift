@@ -40,8 +40,8 @@ class ActivityFunctions {
         
         // 1. Remove activity from old location
         let oldDayModel = Data.tripModels[tripIndex].dayModels[oldDayIndex]
-        let oldActivityIndex = (oldDayModel.activities.firstIndex(of: activityModel))
-        Data.tripModels[tripIndex].dayModels[newDayIndex].activities.remove(at: oldDayIndex)
+        let oldActivityIndex = (oldDayModel.activities.firstIndex(of: activityModel))!
+        Data.tripModels[tripIndex].dayModels[newDayIndex].activities.remove(at: oldActivityIndex)
         
         // 2. Insert activity to a new location
         Data.tripModels[tripIndex].dayModels[newDayIndex].activities.insert(activityModel, at: newDayIndex)
