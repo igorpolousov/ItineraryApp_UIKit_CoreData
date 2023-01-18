@@ -11,6 +11,8 @@ import Foundation
 class DayFunctions {
     static func createDay(tripIndex: Int, dayModel: DayModel) {
         // Replace with real data storage
-        Data.tripModels[tripIndex].dayModels.append(dayModel)
+
+        //ModelsData.tripModels[tripIndex].dayModels?.append(dayModel)
+        ModelsData.tripModels[tripIndex].addToDayModels(dayModel)
     }
 }

@@ -7,8 +7,11 @@
 
 import UIKit
 import Photos
+import CoreData
 
 class AddTripViewController: UIViewController {
+    
+     var coreDataStack = CoreDataStack(modelName: "ItineraryApp")
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tripTextField: UITextField!
@@ -35,9 +38,9 @@ class AddTripViewController: UIViewController {
         titleLabel.setupWhiteShadow()
        
         if let index = tripIndexToEdit {
-            let trip = Data.tripModels[index]
+            let trip = ModelsData.tripModels[index]
             tripTextField.text = trip.title
-            imageView.image = trip.image
+            imageView.image = UIImage(data: trip.image!)
             titleLabel.text = "Edit Trip"
         }
   
@@ -65,7 +68,7 @@ class AddTripViewController: UIViewController {
         if let index = tripIndexToEdit {
             TripFunctions.updateTrip(at: index, title: text, image: imageView.image)
         } else {
-            TripFunctions.createTrip(tripModel: TripModel(title: text, image: imageView.image))
+            TripFunctions.createTrip(tripModelTitle: text, tripModelImage: imageView.image)
         }
         
         if let doneSavings = doneSavings {

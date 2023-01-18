@@ -37,7 +37,7 @@ class TripsTableViewCell: UITableViewCell {
         
         if let tripImage = tripModel.image {
             tripImgeView.alpha = 0.5
-            tripImgeView.image = tripImage
+            tripImgeView.image = UIImage(data: tripImage)
             UIView.animate(withDuration: 1) {
                 self.tripImgeView.alpha = 1
             }

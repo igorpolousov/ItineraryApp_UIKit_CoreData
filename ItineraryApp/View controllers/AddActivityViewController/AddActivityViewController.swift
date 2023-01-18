@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import CoreData
 
 class AddActivityViewController: UITableViewController {
+    private var coreDataStack = CoreDataStack(modelName: "ItineraryApp")
  
     @IBOutlet weak var addActivityImageView: UIImageView!
     @IBOutlet weak var addActivityLabel: UILabel!
@@ -47,12 +49,13 @@ class AddActivityViewController: UITableViewController {
             activityNamePicker.selectRow(dayIndex, inComponent: 0, animated: true)
             
             // Populate the activity data
-            addImageAction(activityImageButton[activityModel.activityType.rawValue])
+            addImageAction(activityImageButton[Int(activityModel.activityType)])
             taskDescription.text = activityModel.title
-            additionalDescription.text = activityModel.subTitle
+            additionalDescription.text = activityModel.subtitle
         } else {
             // New Activity: Set default values
-            addImageAction(activityImageButton[ActivityType.hotel.rawValue])
+            let number = Int(ActivityType.hotel.rawValue)
+            addImageAction(activityImageButton[number])
         }
     }
     
@@ -72,9 +75,9 @@ class AddActivityViewController: UITableViewController {
         
         if activityModelToEdit != nil {
             // Update Activity
-            activityModelToEdit.activityType = activityType
+            activityModelToEdit.activityType = activityType.rawValue
             activityModelToEdit.title = newActivityName
-            activityModelToEdit.subTitle = additionalDescription.text ?? ""
+            activityModelToEdit.subtitle = additionalDescription.text ?? ""
             
             ActivityFunctions.updateActivity(at: tripIndex, oldDayIndex: dayIndexToEdit, newDayIndex: newDayIndex, using: activityModelToEdit)
             if let doneUpdating = doneUpdating, let oldDayIndex = dayIndexToEdit {
@@ -83,7 +86,11 @@ class AddActivityViewController: UITableViewController {
             
         } else {
             // New activity
-            let activityModel = ActivityModel(title: newActivityName, subTitle: additionalDescription.text ?? "", activityType: activityType)
+//            let activityModel = ActivityModel(title: newActivityName, subTitle: additionalDescription.text ?? "", activityType: activityType)
+            let activityModel = ActivityModel(context: coreDataStack.managedContext)
+            activityModel.title = newActivityName
+            activityModel.subtitle = additionalDescription.text
+            activityModel.activityType = activityType.rawValue
             ActivityFunctions.createActivity(at: tripIndex, for: newDayIndex, using: activityModel)
             
             if let doneSavings = doneSavings {
@@ -97,7 +104,7 @@ class AddActivityViewController: UITableViewController {
     func getSelectedActivityType() -> ActivityType {
         for (index, button) in activityImageButton.enumerated() {
             if button.tintColor == Theme.tintColor {
-                return ActivityType(rawValue: index) ?? .hotel
+                return ActivityType(rawValue: Int32(index)) ?? .hotel
             }
         }
         return .hotel
@@ -116,11 +123,11 @@ extension AddActivityViewController: UIPickerViewDataSource, UIPickerViewDelegat
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return tripModel.dayModels.count
+        return tripModel.dayModels!.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-      return tripModel.dayModels[row].title.mediumStyleDate()
+        return tripModel.dayModels?[row].title?.mediumStyleDate()
     }
     
 }

@@ -10,14 +10,14 @@ import Foundation
 class ActivityFunctions {
     static func createActivity(at tripIndex: Int, for dayIndex: Int, using activityModel: ActivityModel) {
         // Replace with real data storage
-        Data.tripModels[tripIndex].dayModels[dayIndex].activities.append(activityModel)
+        ModelsData.tripModels[tripIndex].dayModels?[dayIndex].activityModels?.append(activityModel)
     }
     
     static func deleteActivity(at tripIndex: Int, for dayIndex: Int, using activityModel: ActivityModel) {
         // Replace with real data storage
-        var dayModel = Data.tripModels[tripIndex].dayModels[dayIndex]
-        if let index = dayModel.activities.firstIndex(of: activityModel) {
-            dayModel.activities.remove(at: index)
+        var dayModel = ModelsData.tripModels[tripIndex].dayModels?[dayIndex]
+        if let index = dayModel?.activityModels?.firstIndex(of: activityModel) {
+            dayModel?.activityModels?.remove(at: index)
         }
     }
     
@@ -25,13 +25,13 @@ class ActivityFunctions {
         // replace with real data store here
         if oldDayIndex != newDayIndex {
             //move activity to a different day
-            let lastIndex = Data.tripModels[tripIndex].dayModels[newDayIndex].activities.count
-            reorderActivity(at: tripIndex, oldDayIndex: oldDayIndex, newDayIndex: newDayIndex, newActivityIndex: lastIndex, activityModel: activityModel)
+            let lastIndex = ModelsData.tripModels[tripIndex].dayModels?[newDayIndex].activityModels?.count
+            reorderActivity(at: tripIndex, oldDayIndex: oldDayIndex, newDayIndex: newDayIndex, newActivityIndex: lastIndex!, activityModel: activityModel)
         } else {
             //update activity in the same day
-            let dayModel = Data.tripModels[tripIndex].dayModels[oldDayIndex]
-            let activityIndex = (dayModel.activities.firstIndex(of: activityModel))
-            Data.tripModels[tripIndex].dayModels[newDayIndex].activities[activityIndex!] = activityModel
+            let dayModel = ModelsData.tripModels[tripIndex].dayModels?[oldDayIndex]
+            let activityIndex = (dayModel?.activityModels?.firstIndex(of: activityModel))
+            ModelsData.tripModels[tripIndex].dayModels?[newDayIndex].activityModels?[activityIndex!] = activityModel
         }
     }
     
@@ -39,12 +39,12 @@ class ActivityFunctions {
         // Replace with real data store
         
         // 1. Remove activity from old location
-        let oldDayModel = Data.tripModels[tripIndex].dayModels[oldDayIndex]
-        let oldActivityIndex = (oldDayModel.activities.firstIndex(of: activityModel))!
-        Data.tripModels[tripIndex].dayModels[newDayIndex].activities.remove(at: oldActivityIndex)
+        let oldDayModel = ModelsData.tripModels[tripIndex].dayModels?[oldDayIndex]
+        let oldActivityIndex = (oldDayModel?.activityModels?.firstIndex(of: activityModel))!
+        ModelsData.tripModels[tripIndex].dayModels?[newDayIndex].activityModels?.remove(at: oldActivityIndex)
         
         // 2. Insert activity to a new location
-        Data.tripModels[tripIndex].dayModels[newDayIndex].activities.insert(activityModel, at: newDayIndex)
+        ModelsData.tripModels[tripIndex].dayModels?[newDayIndex].activityModels?.insert(activityModel, at: newDayIndex)
     }
     
 }
