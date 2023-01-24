@@ -269,6 +269,6 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
         //tripModel?.dayModels?[destinationIndexPath.section].activityModels?.insert(activityModel, at: destinationIndexPath.row)
         
         // 4. Update the data store
-        ActivityFunctions.reorderActivity(at: getTripIndex(), oldDayIndex: sourceIndexPath.section, newDayIndex: destinationIndexPath.section, newActivityIndex: destinationIndexPath.row, activityModel: activityModel)
+        ActivityFunctions.reorderActivity(at: getTripIndex(), oldDayIndex: sourceIndexPath.section, newDayIndex: destinationIndexPath.section, newActivityIndex: destinationIndexPath.row, activityModel: activityModel, coreDataStack: coreDataStack)
     }
 }

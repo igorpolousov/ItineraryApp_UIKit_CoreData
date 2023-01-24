@@ -26,22 +26,23 @@ class ActivityFunctions {
         dayModel?.removeFromActivityModels(activityModel)
     }
     
-    static func updateActivity(at tripIndex: Int, oldDayIndex: Int, newDayIndex: Int, using activityModel: ActivityModel) {
+    static func updateActivity(at tripIndex: Int, oldDayIndex: Int, newDayIndex: Int, using activityModel: ActivityModel, coreDataStack: CoreDataStack) {
 
         if oldDayIndex != newDayIndex {
             //move activity to a different day
              guard let dayModel = ModelsData.tripModels[tripIndex].dayModels?[newDayIndex] as? DayModel,
                    let lastIndex = dayModel.activityModels?.count else {return}
-            reorderActivity(at: tripIndex, oldDayIndex: oldDayIndex, newDayIndex: newDayIndex, newActivityIndex: lastIndex, activityModel: activityModel)
+            reorderActivity(at: tripIndex, oldDayIndex: oldDayIndex, newDayIndex: newDayIndex, newActivityIndex: lastIndex, activityModel: activityModel, coreDataStack: coreDataStack)
         } else {
             //update activity in the same day
             guard let dayModel = ModelsData.tripModels[tripIndex].dayModels?[oldDayIndex] as? DayModel,
                   let activityIndex = dayModel.activityModels?.index(of: activityModel) else {return}
             dayModel.replaceActivityModels(at: activityIndex, with: activityModel)
+            coreDataStack.saveContext()
         }
     }
     
-    static func reorderActivity(at tripIndex: Int, oldDayIndex: Int, newDayIndex: Int, newActivityIndex: Int, activityModel: ActivityModel) {
+    static func reorderActivity(at tripIndex: Int, oldDayIndex: Int, newDayIndex: Int, newActivityIndex: Int, activityModel: ActivityModel, coreDataStack: CoreDataStack) {
         
         // 1. Remove activity from old location
         guard let oldDayModel = ModelsData.tripModels[tripIndex].dayModels?[oldDayIndex] as? DayModel,
@@ -51,7 +52,9 @@ class ActivityFunctions {
         
         // 2. Insert activity to a new location
         guard let dayModel = ModelsData.tripModels[tripIndex].dayModels?[newDayIndex] as? DayModel else {return}
-        dayModel.insertIntoActivityModels(activityModel, at: newDayIndex)
+        //dayModel.insertIntoActivityModels(activityModel, at: newDayIndex)
+        dayModel.addToActivityModels(activityModel)
+        coreDataStack.saveContext()
     }
     
 }
