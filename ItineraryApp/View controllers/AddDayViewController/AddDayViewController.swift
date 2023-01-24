@@ -10,7 +10,7 @@ import CoreData
 
 class AddDayViewController: UIViewController {
     
-    var coreDataStack = CoreDataStack(modelName: "ItineraryApp")
+    var coreDataStack: CoreDataStack!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var addDayLabel: UILabel!
@@ -51,7 +51,7 @@ class AddDayViewController: UIViewController {
             let dayModel = DayModel(context: coreDataStack.managedContext)
             dayModel.title = datePicker.date
             dayModel.subtitle = descriptionTextField.text
-            DayFunctions.createDay(tripIndex: tripIndex!, dayModel: dayModel)
+            DayFunctions.createDay(tripIndex: tripIndex!, dayModel: dayModel, coreDataStack: coreDataStack)
             
             if let doneSavings = doneSavings {
                 doneSavings(dayModel)
@@ -64,7 +64,7 @@ class AddDayViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         
-        if tripModel.dayModels!.contains(where: {$0.title?.mediumStyleDate() == date.mediumStyleDate()}) {
+        if tripModel.dayModels!.contains(where: {($0 as AnyObject).title?.mediumStyleDate() == date.mediumStyleDate()}) {
             return true
         }
         return false

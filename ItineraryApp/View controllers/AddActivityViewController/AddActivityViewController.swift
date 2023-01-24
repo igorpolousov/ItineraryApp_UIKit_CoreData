@@ -9,7 +9,6 @@ import UIKit
 import CoreData
 
 class AddActivityViewController: UITableViewController {
-    private var coreDataStack = CoreDataStack(modelName: "ItineraryApp")
  
     @IBOutlet weak var addActivityImageView: UIImageView!
     @IBOutlet weak var addActivityLabel: UILabel!
@@ -23,7 +22,9 @@ class AddActivityViewController: UITableViewController {
     
     var tripIndex: Int!
     var tripModel: TripModel!
-    var doneSavings: ((Int, ActivityModel) -> ())?
+    //var doneSavings: ((Int, ActivityModel) -> ())?
+    var doneSavings: ((Int) -> ())?
+    var coreDataStack: CoreDataStack!
     
     // For editing activities
     var dayIndexToEdit: Int! // Needed for saving
@@ -87,14 +88,12 @@ class AddActivityViewController: UITableViewController {
         } else {
             // New activity
 //            let activityModel = ActivityModel(title: newActivityName, subTitle: additionalDescription.text ?? "", activityType: activityType)
-            let activityModel = ActivityModel(context: coreDataStack.managedContext)
-            activityModel.title = newActivityName
-            activityModel.subtitle = additionalDescription.text
-            activityModel.activityType = activityType.rawValue
-            ActivityFunctions.createActivity(at: tripIndex, for: newDayIndex, using: activityModel)
+           
+            //ActivityFunctions.createActivity(at: tripIndex, for: newDayIndex, using: activityModel)
+            ActivityFunctions.createActivity(at: tripIndex, for: newDayIndex, activityTitle: newActivityName, activitySubtitle: additionalDescription.text ?? "", activityType: activityType.rawValue, coreDataStack: coreDataStack)
             
             if let doneSavings = doneSavings {
-                doneSavings(newDayIndex, activityModel)
+                doneSavings(newDayIndex)
             }
         }
         
@@ -127,7 +126,8 @@ extension AddActivityViewController: UIPickerViewDataSource, UIPickerViewDelegat
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return tripModel.dayModels?[row].title?.mediumStyleDate()
+        guard let dayModel = tripModel.dayModels?[row] as? DayModel else {return ""}
+        return dayModel.title?.mediumStyleDate()
     }
     
 }

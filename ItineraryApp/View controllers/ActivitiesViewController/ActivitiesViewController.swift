@@ -16,6 +16,7 @@ class ActivitiesViewController: UIViewController {
     var tripId: UUID!
     var tripModel: TripModel?
     var tableRowHight: CGFloat = 0.0
+    var coreDataStack: CoreDataStack!
     
     // MARK: ViewDidLoad
     override func viewDidLoad() {
@@ -68,12 +69,13 @@ class ActivitiesViewController: UIViewController {
         if let vc = storyboard.instantiateInitialViewController() as? AddDayViewController {
             vc.tripModel = tripModel
             vc.tripIndex = getTripIndex()
+            vc.coreDataStack = coreDataStack
             vc.doneSavings = {[weak self] dayModel in
                 guard let self = self else {return}
                 
               //  let index = [self.tripModel?.dayModels.count ?? 0]
-                self.tripModel?.dayModels?.append(dayModel)
-                let index = [self.tripModel?.dayModels?.firstIndex(of: dayModel) ?? 1]
+                //self.tripModel?.dayModels?.append(dayModel)
+                let index = [self.tripModel?.dayModels?.index(of: dayModel) ?? 1]
                 
                 self.tableView.insertSections(IndexSet(index), with: UITableView.RowAnimation.automatic)
             }
@@ -92,11 +94,13 @@ class ActivitiesViewController: UIViewController {
         if let vc = storyBoard.instantiateInitialViewController() as? AddActivityViewController {
             vc.tripModel = tripModel
             vc.tripIndex = getTripIndex()
-            vc.doneSavings = { [weak self] dayIndex, activityModel in
+            vc.coreDataStack = coreDataStack
+            vc.doneSavings = { [weak self] dayIndex in
                 guard let self = self else { return }
-                self.tripModel?.dayModels?[dayIndex].activityModels?.append(activityModel)
-                let row = (self.tripModel?.dayModels?[dayIndex].activityModels?.count)! - 1
-                let indexPath = IndexPath(row: row, section: dayIndex)
+                //self.tripModel?.dayModels?[dayIndex].activityModels?.append(activityModel)
+                guard let dayModel = self.tripModel?.dayModels?[dayIndex] as? DayModel, let row = dayModel.activityModels?.count else {return}
+                //let row = (self.tripModel?.dayModels?[dayIndex].activityModels?.count)! - 1
+                let indexPath = IndexPath(row: row - 1, section: dayIndex)
                 self.tableView.insertRows(at: [indexPath], with: .right)
             }
             
@@ -133,7 +137,7 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     
     // View for header
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let dayModel = (tripModel?.dayModels?[section])!
+        guard let dayModel = tripModel?.dayModels?[section] as? DayModel else {return UICollectionViewCell()}
         let cell = tableView.dequeueReusableCell(withIdentifier: HeaderTableViewCell.identifier) as! HeaderTableViewCell
         cell.setup(model: dayModel)
         return cell.contentView
@@ -141,12 +145,14 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     
     // Number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tripModel?.dayModels?[section].activityModels?.count ?? 0
+        guard let dayModel = tripModel?.dayModels?[section] as? DayModel else {return 0}
+        return dayModel.activityModels?.count ?? 0
     }
     
     // Setup cell for table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let activityModel = (tripModel?.dayModels?[indexPath.section].activityModels?[indexPath.row])!
+        guard let dayModel = tripModel?.dayModels?[indexPath.section] as? DayModel, let activityModel = dayModel.activityModels?[indexPath.row] as? ActivityModel else {return UITableViewCell()}
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: ActivityTableViewCell.identifier, for: indexPath) as! ActivityTableViewCell
         cell.setup(model: activityModel)
         return cell
@@ -160,11 +166,12 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     // Trailing delete action
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let activityModel = tripModel!.dayModels?[indexPath.section].activityModels?[indexPath.row]
+        guard let dayModel = tripModel?.dayModels?[indexPath.section] as? DayModel, let activityModel = dayModel.activityModels?[indexPath.row] as? ActivityModel else {return UISwipeActionsConfiguration()}
+        //let activityModel = tripModel!.dayModels?[indexPath.section].activityModels?[indexPath.row]
         
         let delete = UIContextualAction(style: .normal, title: "Delete") { (contextualAction, actionView, actionPerformed: @escaping (Bool) -> Void) in
             // MARK:  check String Describing!!! here the code for delete action
-            let ac = UIAlertController(title: "Delete", message: "Are you sure you want to delete this activity \(String(describing: activityModel!.title))?", preferredStyle: .alert)
+            let ac = UIAlertController(title: "Delete", message: "Are you sure you want to delete this activity \(String(describing: activityModel.title))?", preferredStyle: .alert)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
                 actionPerformed(false) // for remove row in initial position
@@ -172,8 +179,7 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
                 // perform delete
-                ActivityFunctions.deleteActivity(at: self.getTripIndex(), for: indexPath.section, using: activityModel!)
-                self.tripModel!.dayModels?[indexPath.section].activityModels?.remove(at: indexPath.row)
+                ActivityFunctions.deleteActivity(at: self.getTripIndex(), for: indexPath.section, using: activityModel)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 actionPerformed(true)
             }
@@ -189,6 +195,8 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     
     // Leading editing action
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard var dayModel = tripModel?.dayModels?[indexPath.section] as? DayModel, let activityModel = dayModel.activityModels?[indexPath.row] as? ActivityModel else {return UISwipeActionsConfiguration()}
+        
         let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, actionView, actionPerformed: @escaping (Bool) -> Void) in
             // here the code for edit action
             let storyBoard = UIStoryboard(name: String(describing: AddActivityViewController.self), bundle: nil)
@@ -204,16 +212,20 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
             vc.dayIndexToEdit = indexPath.section
             
             // Which activity we are editing
-            vc.activityModelToEdit = self.tripModel?.dayModels?[indexPath.section].activityModels?[indexPath.row]
-            
+            //vc.activityModelToEdit = self.tripModel?.dayModels?[indexPath.section].activityModels?[indexPath.row]
+            vc.activityModelToEdit = activityModel
             // What do we want to happen after the Activity saved?
             vc.doneUpdating = { [weak self] oldDayIndex, newDayIndex, activityModel in
                 guard let self = self else { return }
                 
-                let oldActivityIndex = (self.tripModel?.dayModels?[oldDayIndex].activityModels?.firstIndex(of: activityModel))
+                //let oldActivityIndex = (self.tripModel?.dayModels?[oldDayIndex].activityModels?.firstIndex(of: activityModel))
+                dayModel = self.tripModel?.dayModels?[oldDayIndex] as! DayModel
+                let oldActivityIndex = dayModel.activityModels?.index(of: activityModel)
                 if oldDayIndex == newDayIndex {
                     // 1. Update the local table data
-                    self.tripModel?.dayModels?[newDayIndex].activityModels?[oldDayIndex] = activityModel
+                    //self.tripModel?.dayModels?[newDayIndex].activityModels?[oldDayIndex] = activityModel
+                    dayModel = self.tripModel?.dayModels?[newDayIndex] as! DayModel
+                    dayModel.insertIntoActivityModels(activityModel, at: oldDayIndex)
                     // 2. Refresh just that row
                     let indexPath = IndexPath(row: oldActivityIndex!, section: newDayIndex)
                     tableView.reloadRows(at: [indexPath], with: .right)
@@ -221,14 +233,18 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
                     // Activity moved to a different day
                     
                     // 1. Remove activity from local table data
-                    self.tripModel?.dayModels?[oldDayIndex].activityModels?.remove(at: oldDayIndex)
+                    //self.tripModel?.dayModels?[oldDayIndex].activityModels?.remove(at: oldDayIndex)
+                    dayModel = self.tripModel?.dayModels?[oldDayIndex] as! DayModel
+                    dayModel.removeFromActivityModels(at: oldDayIndex)
                     // 2. Insert Activity into a new  location
-                    let lastIndex = (self.tripModel?.dayModels?[newDayIndex].activityModels?.count)
-                    self.tripModel?.dayModels?[newDayIndex].activityModels?.insert(activityModel, at: lastIndex!)
+                    dayModel = self.tripModel?.dayModels?[newDayIndex] as! DayModel
+                    guard let lastIndex = dayModel.activityModels?.count else {return}
+                    //self.tripModel?.dayModels?[newDayIndex].activityModels?.insert(activityModel, at: lastIndex!)
+                    dayModel.insertIntoActivityModels(activityModel, at: lastIndex)
                     // 3. Update table rows
                     tableView.performBatchUpdates({
                         tableView.deleteRows(at: [indexPath], with: .fade)
-                        let insertIndexPath = IndexPath(row: lastIndex!, section: newDayIndex)
+                        let insertIndexPath = IndexPath(row: lastIndex, section: newDayIndex)
                         tableView.insertRows(at: [insertIndexPath], with: .right)
                     })
                 }
@@ -246,13 +262,17 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         // 1. Get the Current Activity
-        let activityModel = (tripModel?.dayModels?[sourceIndexPath.section].activityModels?[sourceIndexPath.row])!
+        guard var dayModel = tripModel?.dayModels?[sourceIndexPath.section] as? DayModel, let activityModel = dayModel.activityModels?[sourceIndexPath.row] as? ActivityModel else {return}
+        
         
         // 2. Delete activity from old location
-        tripModel?.dayModels?[sourceIndexPath.section].activityModels?.remove(at: sourceIndexPath.row)
+        //tripModel?.dayModels?[sourceIndexPath.section].activityModels?.remove(at: sourceIndexPath.row)
+        dayModel.removeFromActivityModels(at: sourceIndexPath.row)
         
         // 3. Insert Activity to a new day
-        tripModel?.dayModels?[destinationIndexPath.section].activityModels?.insert(activityModel, at: destinationIndexPath.row)
+        dayModel = tripModel?.dayModels?[destinationIndexPath.section] as! DayModel
+        dayModel.insertIntoActivityModels(activityModel, at: destinationIndexPath.row)
+        //tripModel?.dayModels?[destinationIndexPath.section].activityModels?.insert(activityModel, at: destinationIndexPath.row)
         
         // 4. Update the data store
         ActivityFunctions.reorderActivity(at: getTripIndex(), oldDayIndex: sourceIndexPath.section, newDayIndex: destinationIndexPath.section, newActivityIndex: destinationIndexPath.row, activityModel: activityModel)

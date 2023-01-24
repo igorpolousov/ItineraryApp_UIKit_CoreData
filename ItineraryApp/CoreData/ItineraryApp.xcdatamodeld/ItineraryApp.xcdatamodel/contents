@@ -11,13 +11,13 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="subtitle" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="activityModels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityModel" inverseName="dayModels" inverseEntity="ActivityModel"/>
+        <relationship name="activityModels" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ActivityModel" inverseName="dayModels" inverseEntity="ActivityModel"/>
         <relationship name="tripModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TripModel" inverseName="dayModels" inverseEntity="TripModel"/>
     </entity>
     <entity name="TripModel" representedClassName="TripModel" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="dayModels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DayModel" inverseName="tripModel" inverseEntity="DayModel"/>
+        <relationship name="dayModels" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DayModel" inverseName="tripModel" inverseEntity="DayModel"/>
     </entity>
 </model>

@@ -11,8 +11,6 @@ import CoreData
 
 class AddTripViewController: UIViewController {
     
-     var coreDataStack = CoreDataStack(modelName: "ItineraryApp")
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tripTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
@@ -23,6 +21,8 @@ class AddTripViewController: UIViewController {
     // Call back function for sending data to another class "Trips view controller"
     var doneSavings: (()->())?
     var tripIndexToEdit: Int?
+    
+    var coreDataStack: CoreDataStack!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,9 +66,9 @@ class AddTripViewController: UIViewController {
             return
         }
         if let index = tripIndexToEdit {
-            TripFunctions.updateTrip(at: index, title: text, image: imageView.image)
+            TripFunctions.updateTrip(at: index, title: text, image: imageView.image, coreDataStack: coreDataStack)
         } else {
-            TripFunctions.createTrip(tripModelTitle: text, tripModelImage: imageView.image)
+            TripFunctions.createTrip(tripModelTitle: text, tripModelImage: imageView.image, coreDataStack: coreDataStack)
         }
         
         if let doneSavings = doneSavings {

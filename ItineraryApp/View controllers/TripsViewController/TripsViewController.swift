@@ -17,6 +17,8 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var tripIndexToEdit: Int?
     var helpViewDefaultsKey = "seenTripHelp"
     
+    lazy var coreDataStack = CoreDataStack(modelName: "ItineraryApp")
+    
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -25,7 +27,6 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         title = "Trips"
         navigationItem.backButtonTitle = ""
         navigationController?.navigationBar.barTintColor = Theme.backgroundColor
-        
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -48,12 +49,10 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }) { success in
             self.getTripData() // option 2 to show data after animation
         }
-      
-      
     }
     
     fileprivate func getTripData() {
-        TripFunctions.readTrips { [unowned self] in
+        TripFunctions.readTrips(coreDataStack: coreDataStack) { [unowned self] in
             self.tableView.reloadData()
             
             if ModelsData.tripModels.count > 0 {
@@ -91,6 +90,7 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let storyBoard = UIStoryboard(name: "ActivitiesViewController", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: String(describing: ActivitiesViewController.self)) as? ActivitiesViewController {
             vc.tripId = trip.id
+            vc.coreDataStack = coreDataStack
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -103,13 +103,13 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, actionView, actionPerformed: @escaping (Bool) -> Void) in
             let trip = ModelsData.tripModels[indexPath.row]
-            let ac = UIAlertController(title: "Delete trip", message: "Are you sure you want to delete \(trip.title)?", preferredStyle: .alert)
+            let ac = UIAlertController(title: "Delete trip", message: "Are you sure you want to delete \(trip.title ?? "")?", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel,handler: { action in
                 actionPerformed(false)
             }))
             ac.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
                 // Perform delete
-                TripFunctions.deletetrip(index: indexPath.row)
+                TripFunctions.deletetrip(index: indexPath.row, coreDataStack: self.coreDataStack)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 actionPerformed(true)
             }))
@@ -141,6 +141,7 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if segue.identifier == "toAddTripViewController" {
             let popUp = segue.destination as! AddTripViewController
             popUp.tripIndexToEdit = self.tripIndexToEdit
+            popUp.coreDataStack = coreDataStack
             popUp.doneSavings = { [weak self] in
                 self?.tableView.reloadData()
             }

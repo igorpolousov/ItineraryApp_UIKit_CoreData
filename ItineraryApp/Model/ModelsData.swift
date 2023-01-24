@@ -9,6 +9,5 @@ import Foundation
 
 
 class ModelsData {
-    
     static var tripModels: [TripModel] = []
 }

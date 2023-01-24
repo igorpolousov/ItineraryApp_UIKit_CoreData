@@ -5,7 +5,6 @@
 //  Created by Igor Polousov on 26.09.2022.
 //
 
-import Foundation
 import UIKit
 import CoreData
 
@@ -13,10 +12,10 @@ import CoreData
 
 class TripFunctions {
     
-     static var coreDataStack = CoreDataStack(modelName: "ItineraryApp")
+     //static var coreDataStack = CoreDataStack(modelName: "ItineraryApp")
     
     // Создать путешествие
-    static func createTrip(tripModelTitle: String, tripModelImage: UIImage? = nil) {
+    static func createTrip(tripModelTitle: String, tripModelImage: UIImage? = nil, coreDataStack: CoreDataStack) {
         let tripModel = TripModel(context: coreDataStack.managedContext)
         tripModel.title = tripModelTitle
         tripModel.image = tripModelImage?.pngData()
@@ -26,7 +25,7 @@ class TripFunctions {
     }
     
     // Получить данные для таблицы от путешествия
-    static func readTrips(completion: @escaping ()->()) {
+    static func readTrips(coreDataStack: CoreDataStack, completion: @escaping ()->()) {
         
         let fetchRequest: NSFetchRequest<TripModel> = TripModel.fetchRequest()
         var asyncFetchRequest: NSAsynchronousFetchRequest<TripModel>?
@@ -59,14 +58,15 @@ class TripFunctions {
     }
     
     // Изменить данные путешествия
-    static func updateTrip(at index: Int, title: String, image: UIImage? = nil) {
+    static func updateTrip(at index: Int, title: String, image: UIImage? = nil, coreDataStack: CoreDataStack) {
         ModelsData.tripModels[index].title = title
         ModelsData.tripModels[index].image = image?.pngData()
+        coreDataStack.saveContext()
     }
     
     // Удалить путешествие
-    static func deletetrip(index: Int) {
-        guard let tripToRemove = ModelsData.tripModels[index] as? TripModel else {return}
+    static func deletetrip(index: Int, coreDataStack: CoreDataStack) {
+        let tripToRemove = ModelsData.tripModels[index]
         coreDataStack.managedContext.delete(tripToRemove)
         coreDataStack.saveContext()
         ModelsData.tripModels.remove(at: index)

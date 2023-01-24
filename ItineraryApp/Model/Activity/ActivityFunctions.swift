@@ -5,46 +5,53 @@
 //  Created by Igor Polousov on 13.12.2022.
 //
 
-import Foundation
+import UIKit
+import CoreData
 
 class ActivityFunctions {
-    static func createActivity(at tripIndex: Int, for dayIndex: Int, using activityModel: ActivityModel) {
-        // Replace with real data storage
-        ModelsData.tripModels[tripIndex].dayModels?[dayIndex].activityModels?.append(activityModel)
+    static func createActivity(at tripIndex: Int, for dayIndex: Int, activityTitle: String, activitySubtitle: String, activityType: Int32, coreDataStack: CoreDataStack ) {
+        
+        let activityModel = ActivityModel(context: coreDataStack.managedContext)
+        activityModel.title = activityTitle
+        activityModel.subtitle = activitySubtitle
+        activityModel.activityType = activityType
+        let dayModel = ModelsData.tripModels[tripIndex].dayModels?[dayIndex] as? DayModel
+        dayModel?.addToActivityModels(activityModel)
+        coreDataStack.saveContext()
+        
     }
     
     static func deleteActivity(at tripIndex: Int, for dayIndex: Int, using activityModel: ActivityModel) {
-        // Replace with real data storage
-        var dayModel = ModelsData.tripModels[tripIndex].dayModels?[dayIndex]
-        if let index = dayModel?.activityModels?.firstIndex(of: activityModel) {
-            dayModel?.activityModels?.remove(at: index)
-        }
+        let dayModel = ModelsData.tripModels[tripIndex].dayModels?[dayIndex] as? DayModel
+        dayModel?.removeFromActivityModels(activityModel)
     }
     
     static func updateActivity(at tripIndex: Int, oldDayIndex: Int, newDayIndex: Int, using activityModel: ActivityModel) {
-        // replace with real data store here
+
         if oldDayIndex != newDayIndex {
             //move activity to a different day
-            let lastIndex = ModelsData.tripModels[tripIndex].dayModels?[newDayIndex].activityModels?.count
-            reorderActivity(at: tripIndex, oldDayIndex: oldDayIndex, newDayIndex: newDayIndex, newActivityIndex: lastIndex!, activityModel: activityModel)
+             guard let dayModel = ModelsData.tripModels[tripIndex].dayModels?[newDayIndex] as? DayModel,
+                   let lastIndex = dayModel.activityModels?.count else {return}
+            reorderActivity(at: tripIndex, oldDayIndex: oldDayIndex, newDayIndex: newDayIndex, newActivityIndex: lastIndex, activityModel: activityModel)
         } else {
             //update activity in the same day
-            let dayModel = ModelsData.tripModels[tripIndex].dayModels?[oldDayIndex]
-            let activityIndex = (dayModel?.activityModels?.firstIndex(of: activityModel))
-            ModelsData.tripModels[tripIndex].dayModels?[newDayIndex].activityModels?[activityIndex!] = activityModel
+            guard let dayModel = ModelsData.tripModels[tripIndex].dayModels?[oldDayIndex] as? DayModel,
+                  let activityIndex = dayModel.activityModels?.index(of: activityModel) else {return}
+            dayModel.replaceActivityModels(at: activityIndex, with: activityModel)
         }
     }
     
     static func reorderActivity(at tripIndex: Int, oldDayIndex: Int, newDayIndex: Int, newActivityIndex: Int, activityModel: ActivityModel) {
-        // Replace with real data store
         
         // 1. Remove activity from old location
-        let oldDayModel = ModelsData.tripModels[tripIndex].dayModels?[oldDayIndex]
-        let oldActivityIndex = (oldDayModel?.activityModels?.firstIndex(of: activityModel))!
-        ModelsData.tripModels[tripIndex].dayModels?[newDayIndex].activityModels?.remove(at: oldActivityIndex)
+        guard let oldDayModel = ModelsData.tripModels[tripIndex].dayModels?[oldDayIndex] as? DayModel,
+              let oldActivityIndex = oldDayModel.activityModels?.index(of: activityModel) else {return}
+        guard let newDayModel = ModelsData.tripModels[tripIndex].dayModels?[newDayIndex] as? DayModel else {return}
+        newDayModel.removeFromActivityModels(at: oldActivityIndex)
         
         // 2. Insert activity to a new location
-        ModelsData.tripModels[tripIndex].dayModels?[newDayIndex].activityModels?.insert(activityModel, at: newDayIndex)
+        guard let dayModel = ModelsData.tripModels[tripIndex].dayModels?[newDayIndex] as? DayModel else {return}
+        dayModel.insertIntoActivityModels(activityModel, at: newDayIndex)
     }
     
 }
