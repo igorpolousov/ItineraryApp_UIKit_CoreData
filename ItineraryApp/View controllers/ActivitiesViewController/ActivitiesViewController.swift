@@ -56,14 +56,12 @@ class ActivitiesViewController: UIViewController {
         if tripModel?.dayModels?.count == 0 {
             activityAction.isEnabled = false
         }
-        // optional check for adding activity
-       // activityAction.isEnabled = tripModel!.dayModels.count > 0
-        
         ac.addAction(activityAction)
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }
     
+    // To add Day View Controller
     func showAddDayViewController() {
         let storyboard = UIStoryboard(name: String(describing: AddDayViewController.self), bundle: nil)
         if let vc = storyboard.instantiateInitialViewController() as? AddDayViewController {
@@ -72,9 +70,7 @@ class ActivitiesViewController: UIViewController {
             vc.coreDataStack = coreDataStack
             vc.doneSavings = {[weak self] dayModel in
                 guard let self = self else {return}
-                
-              //  let index = [self.tripModel?.dayModels.count ?? 0]
-                //self.tripModel?.dayModels?.append(dayModel)
+           
                 let index = [self.tripModel?.dayModels?.index(of: dayModel) ?? 1]
                 
                 self.tableView.insertSections(IndexSet(index), with: UITableView.RowAnimation.automatic)
@@ -89,6 +85,7 @@ class ActivitiesViewController: UIViewController {
         })
     }
     
+    // To add Activity controller
     func showAddActivityViewController() {
         let storyBoard = UIStoryboard(name: String(describing: AddActivityViewController.self), bundle: nil)
         if let vc = storyBoard.instantiateInitialViewController() as? AddActivityViewController {
@@ -103,7 +100,6 @@ class ActivitiesViewController: UIViewController {
                 let indexPath = IndexPath(row: row - 1, section: dayIndex)
                 self.tableView.insertRows(at: [indexPath], with: .right)
             }
-            
             present(vc, animated: true)
         }
     }
@@ -120,7 +116,6 @@ class ActivitiesViewController: UIViewController {
                     self?.backgroundImageView.image = image
                 }
             }
-            //self?.backgroundImageView.image = UIImage(data: model.image)
             self?.tableView.reloadData()
         }
     }
@@ -167,10 +162,9 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         guard let dayModel = tripModel?.dayModels?[indexPath.section] as? DayModel, let activityModel = dayModel.activityModels?[indexPath.row] as? ActivityModel else {return UISwipeActionsConfiguration()}
-        //let activityModel = tripModel!.dayModels?[indexPath.section].activityModels?[indexPath.row]
         
         let delete = UIContextualAction(style: .normal, title: "Delete") { (contextualAction, actionView, actionPerformed: @escaping (Bool) -> Void) in
-            // MARK:  check String Describing!!! here the code for delete action
+      
             let ac = UIAlertController(title: "Delete", message: "Are you sure you want to delete this activity \(String(describing: activityModel.title))?", preferredStyle: .alert)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in

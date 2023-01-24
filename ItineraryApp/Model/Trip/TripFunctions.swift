@@ -12,9 +12,7 @@ import CoreData
 
 class TripFunctions {
     
-     //static var coreDataStack = CoreDataStack(modelName: "ItineraryApp")
-    
-    // Создать путешествие
+    // Create trip
     static func createTrip(tripModelTitle: String, tripModelImage: UIImage? = nil, coreDataStack: CoreDataStack) {
         let tripModel = TripModel(context: coreDataStack.managedContext)
         tripModel.title = tripModelTitle
@@ -24,7 +22,7 @@ class TripFunctions {
         coreDataStack.saveContext()
     }
     
-    // Получить данные для таблицы от путешествия
+    // Fetch trips form Core Data
     static func readTrips(coreDataStack: CoreDataStack, completion: @escaping ()->()) {
         
         let fetchRequest: NSFetchRequest<TripModel> = TripModel.fetchRequest()
@@ -41,10 +39,9 @@ class TripFunctions {
         } catch let error as NSError {
             print("Unable to load data from CoreData \(error), \(error.userInfo)")
         }
-
     }
     
-    // Получить данные для таблицы по trip id
+    // Get trip data form table by trip id
     
     static func readTrip(by id: UUID, completion: @escaping (TripModel?) -> ()) {
         
@@ -57,14 +54,14 @@ class TripFunctions {
         }
     }
     
-    // Изменить данные путешествия
+    // Update trip data
     static func updateTrip(at index: Int, title: String, image: UIImage? = nil, coreDataStack: CoreDataStack) {
         ModelsData.tripModels[index].title = title
         ModelsData.tripModels[index].image = image?.pngData()
         coreDataStack.saveContext()
     }
     
-    // Удалить путешествие
+    // Delete trip
     static func deletetrip(index: Int, coreDataStack: CoreDataStack) {
         let tripToRemove = ModelsData.tripModels[index]
         coreDataStack.managedContext.delete(tripToRemove)
