@@ -10,11 +10,11 @@ For edit or delete use right or left swipe actions.
 
 <img width="171" alt="Main Screen" src="https://user-images.githubusercontent.com/78177975/214558669-1b98b61a-99b3-4e68-9251-fec2f4a1699a.png"> <img width="171" alt="AddTripScreen" src="https://user-images.githubusercontent.com/78177975/214558776-1bac6edd-1b3e-4393-bee5-2eeed1820c10.png"> <img width="171" alt="EditScreen" src="https://user-images.githubusercontent.com/78177975/214558881-b6aec261-c613-4835-a1ca-41c60f91e9d5.png"> <img width="171" alt="DeleteScreen" src="https://user-images.githubusercontent.com/78177975/214558940-6f2b31bf-ebbf-4685-99ea-5812058f394d.png">
 
-Once you've add a trip, on next app start you'll see remembering hint. Only one time. Once you close it it will never appear again. 
+Once you've added a trip, on next app start you'll see hint. Only once. Once you close it will never appear again. 
 
 <img width="171" alt="HintsScreen" src="https://user-images.githubusercontent.com/78177975/214567084-13cac194-3f85-4183-be22-e322dfe42ef7.png">
 
-## When your trip created
+## When your trip is created
 ## Add Days for your trip
 Now you can add Days for your trip one by one. Choose trip and in new window tap Plus button. 
 
@@ -25,7 +25,7 @@ Choose "Add day" option.
 <img width="171" alt="AddDay" src="https://user-images.githubusercontent.com/78177975/214567338-697ffb11-93f3-451d-9d08-f5b2567939a5.png"> <img width="171" alt="AddMenu" src="https://user-images.githubusercontent.com/78177975/214567497-e9612e8c-b778-4642-9bba-10be44c34aa8.png"> <img width="171" alt="AddDayMpopup" src="https://user-images.githubusercontent.com/78177975/214567607-277d4285-8d7e-45e4-bc6c-770f6698031d.png">
 
 ## Add Activities for your trip
-Ypu can add, etit, reorder or delete activities. Tap Plus button, choose "Add Activyity". Choose Date and provide title and description(optional)
+You can add, edit, reorder or delete activities. Tap Plus button, choose "Add Activity". Choose Date and provide title and description(optional)
 
 For edit or delete use right or left swipe actions.
 
