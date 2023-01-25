@@ -29,7 +29,6 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         navigationItem.backButtonTitle = ""
         navigationController?.navigationBar.barTintColor = Theme.backgroundColor
         
-        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -51,15 +50,13 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }) { success in
             self.getTripData() // option 2 to show data after animation
         }
-      
-      
     }
     
     fileprivate func getTripData() {
-        TripFunctions.readTrips { [unowned self] in
+        TripFunctions.readTrips(coreDataStack: coreDataStack) { [unowned self] in
             self.tableView.reloadData()
             
-            if Data.tripModels.count > 0 {
+            if ModelsData.tripModels.count > 0 {
                 if UserDefaults.standard.bool(forKey: helpViewDefaultsKey) ==  false {
                     view.addSubview(helpView)
                     helpView.frame = view.frame
@@ -80,20 +77,21 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // MARK: Table source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Data.tripModels.count
+        return ModelsData.tripModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TripsTableViewCell.identifier, for: indexPath) as! TripsTableViewCell
-        cell.setup(tripModel: Data.tripModels[indexPath.row])
+        cell.setup(tripModel: ModelsData.tripModels[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let trip = Data.tripModels[indexPath.row]
+        let trip = ModelsData.tripModels[indexPath.row]
         let storyBoard = UIStoryboard(name: "ActivitiesViewController", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: String(describing: ActivitiesViewController.self)) as? ActivitiesViewController {
             vc.tripId = trip.id
+            vc.coreDataStack = coreDataStack
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -105,14 +103,14 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, actionView, actionPerformed: @escaping (Bool) -> Void) in
-            let trip = Data.tripModels[indexPath.row]
-            let ac = UIAlertController(title: "Delete trip", message: "Are you sure you want to delete \(trip.title)?", preferredStyle: .alert)
+            let trip = ModelsData.tripModels[indexPath.row]
+            let ac = UIAlertController(title: "Delete trip", message: "Are you sure you want to delete \(trip.title ?? "")?", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel,handler: { action in
                 actionPerformed(false)
             }))
             ac.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
                 // Perform delete
-                TripFunctions.deletetrip(index: indexPath.row)
+                TripFunctions.deletetrip(index: indexPath.row, coreDataStack: self.coreDataStack)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 actionPerformed(true)
             }))
@@ -144,6 +142,7 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if segue.identifier == "toAddTripViewController" {
             let popUp = segue.destination as! AddTripViewController
             popUp.tripIndexToEdit = self.tripIndexToEdit
+            popUp.coreDataStack = coreDataStack
             popUp.doneSavings = { [weak self] in
                 self?.tableView.reloadData()
             }

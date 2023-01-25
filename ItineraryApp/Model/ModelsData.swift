@@ -8,8 +8,7 @@
 import Foundation
 
 
-class Data {
-    
+class ModelsData {
     static var tripModels: [TripModel] = []
 }
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddActivityViewController: UITableViewController {
  
@@ -21,7 +22,9 @@ class AddActivityViewController: UITableViewController {
     
     var tripIndex: Int!
     var tripModel: TripModel!
-    var doneSavings: ((Int, ActivityModel) -> ())?
+    //var doneSavings: ((Int, ActivityModel) -> ())?
+    var doneSavings: ((Int) -> ())?
+    var coreDataStack: CoreDataStack!
     
     // For editing activities
     var dayIndexToEdit: Int! // Needed for saving
@@ -47,12 +50,13 @@ class AddActivityViewController: UITableViewController {
             activityNamePicker.selectRow(dayIndex, inComponent: 0, animated: true)
             
             // Populate the activity data
-            addImageAction(activityImageButton[activityModel.activityType.rawValue])
+            addImageAction(activityImageButton[Int(activityModel.activityType)])
             taskDescription.text = activityModel.title
-            additionalDescription.text = activityModel.subTitle
+            additionalDescription.text = activityModel.subtitle
         } else {
             // New Activity: Set default values
-            addImageAction(activityImageButton[ActivityType.hotel.rawValue])
+            let number = Int(ActivityType.hotel.rawValue)
+            addImageAction(activityImageButton[number])
         }
     }
     
@@ -72,22 +76,21 @@ class AddActivityViewController: UITableViewController {
         
         if activityModelToEdit != nil {
             // Update Activity
-            activityModelToEdit.activityType = activityType
+            activityModelToEdit.activityType = activityType.rawValue
             activityModelToEdit.title = newActivityName
-            activityModelToEdit.subTitle = additionalDescription.text ?? ""
+            activityModelToEdit.subtitle = additionalDescription.text ?? ""
             
-            ActivityFunctions.updateActivity(at: tripIndex, oldDayIndex: dayIndexToEdit, newDayIndex: newDayIndex, using: activityModelToEdit)
+            //ActivityFunctions.updateActivity(at: tripIndex, oldDayIndex: dayIndexToEdit, newDayIndex: newDayIndex, using: activityModelToEdit, coreDataStack: coreDataStack)
             if let doneUpdating = doneUpdating, let oldDayIndex = dayIndexToEdit {
                 doneUpdating(oldDayIndex, newDayIndex, activityModelToEdit)
             }
             
         } else {
             // New activity
-            let activityModel = ActivityModel(title: newActivityName, subTitle: additionalDescription.text ?? "", activityType: activityType)
-            ActivityFunctions.createActivity(at: tripIndex, for: newDayIndex, using: activityModel)
+            ActivityFunctions.createActivity(at: tripIndex, for: newDayIndex, activityTitle: newActivityName, activitySubtitle: additionalDescription.text ?? "", activityType: activityType.rawValue, coreDataStack: coreDataStack)
             
             if let doneSavings = doneSavings {
-                doneSavings(newDayIndex, activityModel)
+                doneSavings(newDayIndex)
             }
         }
         
@@ -97,7 +100,7 @@ class AddActivityViewController: UITableViewController {
     func getSelectedActivityType() -> ActivityType {
         for (index, button) in activityImageButton.enumerated() {
             if button.tintColor == Theme.tintColor {
-                return ActivityType(rawValue: index) ?? .hotel
+                return ActivityType(rawValue: Int32(index)) ?? .hotel
             }
         }
         return .hotel
@@ -116,11 +119,12 @@ extension AddActivityViewController: UIPickerViewDataSource, UIPickerViewDelegat
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return tripModel.dayModels.count
+        return tripModel.dayModels!.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-      return tripModel.dayModels[row].title.mediumStyleDate()
+        guard let dayModel = tripModel.dayModels?[row] as? DayModel else {return ""}
+        return dayModel.title?.mediumStyleDate()
     }
     
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 
-enum ActivityType: Int {
+@objc enum ActivityType: Int32 {
     case auto
     case flight
     case train

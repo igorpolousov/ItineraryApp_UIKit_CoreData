@@ -32,22 +32,24 @@ class ActivityTableViewCell: UITableViewCell {
 //        titleLabel.setupWhiteShadow()
 //        subtitleLabel.setupWhiteShadow()
         titleLabel.text = model.title
-        subtitleLabel.text = model.subTitle
+        subtitleLabel.text = model.subtitle
 
         activityImageView.tintColor = Theme.tintColor
         
 
             switch model.activityType {
-            case .auto:
+            case 0:
                 activityImageView.image = UIImage(named: "taxi")
-            case .flight:
+            case 1:
                 activityImageView.image = UIImage(named: "flight")
-            case .train:
+            case 2:
                 activityImageView.image = UIImage(named: "train")
-            case .food:
+            case 3:
+                activityImageView.image = UIImage(named: "food")
+            case 4:
                 activityImageView.image = UIImage(named: "hotel")
-            case .hotel:
-                activityImageView.image = UIImage(named: "hotel")
+            default:
+                activityImageView.image = UIImage(named: "food")
             }
     }
 }

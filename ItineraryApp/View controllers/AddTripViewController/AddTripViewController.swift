@@ -7,6 +7,7 @@
 
 import UIKit
 import Photos
+import CoreData
 
 class AddTripViewController: UIViewController {
     
@@ -20,6 +21,8 @@ class AddTripViewController: UIViewController {
     // Call back function for sending data to another class "Trips view controller"
     var doneSavings: (()->())?
     var tripIndexToEdit: Int?
+    
+    var coreDataStack: CoreDataStack!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +38,9 @@ class AddTripViewController: UIViewController {
         titleLabel.setupWhiteShadow()
        
         if let index = tripIndexToEdit {
-            let trip = Data.tripModels[index]
+            let trip = ModelsData.tripModels[index]
             tripTextField.text = trip.title
-            imageView.image = trip.image
+            imageView.image = UIImage(data: trip.image!)
             titleLabel.text = "Edit Trip"
         }
   
@@ -63,9 +66,9 @@ class AddTripViewController: UIViewController {
             return
         }
         if let index = tripIndexToEdit {
-            TripFunctions.updateTrip(at: index, title: text, image: imageView.image)
+            TripFunctions.updateTrip(at: index, title: text, image: imageView.image, coreDataStack: coreDataStack)
         } else {
-            TripFunctions.createTrip(tripModel: TripModel(title: text, image: imageView.image))
+            TripFunctions.createTrip(tripModelTitle: text, tripModelImage: imageView.image, coreDataStack: coreDataStack)
         }
         
         if let doneSavings = doneSavings {
