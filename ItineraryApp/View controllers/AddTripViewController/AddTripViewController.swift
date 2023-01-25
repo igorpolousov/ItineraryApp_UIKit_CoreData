@@ -40,8 +40,10 @@ class AddTripViewController: UIViewController {
         if let index = tripIndexToEdit {
             let trip = ModelsData.tripModels[index]
             tripTextField.text = trip.title
-            imageView.image = UIImage(data: trip.image!)
             titleLabel.text = "Edit Trip"
+            guard let image = trip.image else {return}
+            imageView.image = UIImage(data: image)
+            
         }
   
     }
