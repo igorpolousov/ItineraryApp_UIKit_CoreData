@@ -21,9 +21,11 @@ class ActivityFunctions {
         
     }
     
-    static func deleteActivity(at tripIndex: Int, for dayIndex: Int, using activityModel: ActivityModel) {
+    static func deleteActivity(at tripIndex: Int, for dayIndex: Int, using activityModel: ActivityModel, coreDataStack: CoreDataStack) {
         let dayModel = ModelsData.tripModels[tripIndex].dayModels?[dayIndex] as? DayModel
         dayModel?.removeFromActivityModels(activityModel)
+        coreDataStack.saveContext()
+        
     }
     
     static func updateActivity(at tripIndex: Int, oldDayIndex: Int, newDayIndex: Int, using activityModel: ActivityModel, coreDataStack: CoreDataStack) {
@@ -47,8 +49,9 @@ class ActivityFunctions {
         // 1. Remove activity from old location
         guard let oldDayModel = ModelsData.tripModels[tripIndex].dayModels?[oldDayIndex] as? DayModel,
               let oldActivityIndex = oldDayModel.activityModels?.index(of: activityModel) else {return}
-        guard let newDayModel = ModelsData.tripModels[tripIndex].dayModels?[newDayIndex] as? DayModel else {return}
-        newDayModel.removeFromActivityModels(at: oldActivityIndex)
+        //guard let newDayModel = ModelsData.tripModels[tripIndex].dayModels?[newDayIndex] as? DayModel else {return}
+        //newDayModel.removeFromActivityModels(at: oldActivityIndex)
+        oldDayModel.removeFromActivityModels(at: oldActivityIndex)
         
         // 2. Insert activity to a new location
         guard let dayModel = ModelsData.tripModels[tripIndex].dayModels?[newDayIndex] as? DayModel else {return}

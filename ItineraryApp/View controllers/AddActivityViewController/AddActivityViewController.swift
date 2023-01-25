@@ -80,16 +80,13 @@ class AddActivityViewController: UITableViewController {
             activityModelToEdit.title = newActivityName
             activityModelToEdit.subtitle = additionalDescription.text ?? ""
             
-            ActivityFunctions.updateActivity(at: tripIndex, oldDayIndex: dayIndexToEdit, newDayIndex: newDayIndex, using: activityModelToEdit, coreDataStack: coreDataStack)
+            //ActivityFunctions.updateActivity(at: tripIndex, oldDayIndex: dayIndexToEdit, newDayIndex: newDayIndex, using: activityModelToEdit, coreDataStack: coreDataStack)
             if let doneUpdating = doneUpdating, let oldDayIndex = dayIndexToEdit {
                 doneUpdating(oldDayIndex, newDayIndex, activityModelToEdit)
             }
             
         } else {
             // New activity
-//            let activityModel = ActivityModel(title: newActivityName, subTitle: additionalDescription.text ?? "", activityType: activityType)
-           
-            //ActivityFunctions.createActivity(at: tripIndex, for: newDayIndex, using: activityModel)
             ActivityFunctions.createActivity(at: tripIndex, for: newDayIndex, activityTitle: newActivityName, activitySubtitle: additionalDescription.text ?? "", activityType: activityType.rawValue, coreDataStack: coreDataStack)
             
             if let doneSavings = doneSavings {

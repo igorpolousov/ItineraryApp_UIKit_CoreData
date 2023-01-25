@@ -163,7 +163,7 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
         
         guard let dayModel = tripModel?.dayModels?[indexPath.section] as? DayModel, let activityModel = dayModel.activityModels?[indexPath.row] as? ActivityModel else {return UISwipeActionsConfiguration()}
         
-        let delete = UIContextualAction(style: .normal, title: "Delete") { (contextualAction, actionView, actionPerformed: @escaping (Bool) -> Void) in
+        let delete = UIContextualAction(style: .normal, title: "Delete") { [weak self](contextualAction, actionView, actionPerformed: @escaping (Bool) -> Void) in
       
             let ac = UIAlertController(title: "Delete", message: "Are you sure you want to delete this activity \(String(describing: activityModel.title))?", preferredStyle: .alert)
             
@@ -173,14 +173,14 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
                 // perform delete
-                ActivityFunctions.deleteActivity(at: self.getTripIndex(), for: indexPath.section, using: activityModel)
+                ActivityFunctions.deleteActivity(at: (self?.getTripIndex())!, for: indexPath.section, using: activityModel, coreDataStack: (self?.coreDataStack)!)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 actionPerformed(true)
             }
             
             ac.addAction(cancelAction)
             ac.addAction(deleteAction)
-            self.present(ac, animated: true)
+            self?.present(ac, animated: true)
         }
         delete.image = UIImage(named: "delete")
         delete.backgroundColor = Theme.tintColor
@@ -195,7 +195,7 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
             // here the code for edit action
             let storyBoard = UIStoryboard(name: String(describing: AddActivityViewController.self), bundle: nil)
             let vc = storyBoard.instantiateInitialViewController() as! AddActivityViewController
-            
+            vc.coreDataStack = self.coreDataStack
             // Which trip we are on
             vc.tripModel = self.tripModel
             
@@ -206,18 +206,16 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
             vc.dayIndexToEdit = indexPath.section
             
             // Which activity we are editing
-            //vc.activityModelToEdit = self.tripModel?.dayModels?[indexPath.section].activityModels?[indexPath.row]
             vc.activityModelToEdit = activityModel
+            
             // What do we want to happen after the Activity saved?
             vc.doneUpdating = { [weak self] oldDayIndex, newDayIndex, activityModel in
                 guard let self = self else { return }
-                
-                //let oldActivityIndex = (self.tripModel?.dayModels?[oldDayIndex].activityModels?.firstIndex(of: activityModel))
+            
                 dayModel = self.tripModel?.dayModels?[oldDayIndex] as! DayModel
                 let oldActivityIndex = dayModel.activityModels?.index(of: activityModel)
                 if oldDayIndex == newDayIndex {
                     // 1. Update the local table data
-                    //self.tripModel?.dayModels?[newDayIndex].activityModels?[oldDayIndex] = activityModel
                     dayModel = self.tripModel?.dayModels?[newDayIndex] as! DayModel
                     dayModel.insertIntoActivityModels(activityModel, at: oldDayIndex)
                     // 2. Refresh just that row
@@ -227,14 +225,13 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
                     // Activity moved to a different day
                     
                     // 1. Remove activity from local table data
-                    //self.tripModel?.dayModels?[oldDayIndex].activityModels?.remove(at: oldDayIndex)
                     dayModel = self.tripModel?.dayModels?[oldDayIndex] as! DayModel
-                    dayModel.removeFromActivityModels(at: oldDayIndex)
+                    dayModel.removeFromActivityModels(at: oldActivityIndex!)
                     // 2. Insert Activity into a new  location
                     dayModel = self.tripModel?.dayModels?[newDayIndex] as! DayModel
                     guard let lastIndex = dayModel.activityModels?.count else {return}
-                    //self.tripModel?.dayModels?[newDayIndex].activityModels?.insert(activityModel, at: lastIndex!)
                     dayModel.insertIntoActivityModels(activityModel, at: lastIndex)
+                    self.coreDataStack.saveContext()
                     // 3. Update table rows
                     tableView.performBatchUpdates({
                         tableView.deleteRows(at: [indexPath], with: .fade)
@@ -258,15 +255,13 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
         // 1. Get the Current Activity
         guard var dayModel = tripModel?.dayModels?[sourceIndexPath.section] as? DayModel, let activityModel = dayModel.activityModels?[sourceIndexPath.row] as? ActivityModel else {return}
         
-        
         // 2. Delete activity from old location
-        //tripModel?.dayModels?[sourceIndexPath.section].activityModels?.remove(at: sourceIndexPath.row)
         dayModel.removeFromActivityModels(at: sourceIndexPath.row)
         
         // 3. Insert Activity to a new day
         dayModel = tripModel?.dayModels?[destinationIndexPath.section] as! DayModel
         dayModel.insertIntoActivityModels(activityModel, at: destinationIndexPath.row)
-        //tripModel?.dayModels?[destinationIndexPath.section].activityModels?.insert(activityModel, at: destinationIndexPath.row)
+        
         
         // 4. Update the data store
         ActivityFunctions.reorderActivity(at: getTripIndex(), oldDayIndex: sourceIndexPath.section, newDayIndex: destinationIndexPath.section, newActivityIndex: destinationIndexPath.row, activityModel: activityModel, coreDataStack: coreDataStack)
