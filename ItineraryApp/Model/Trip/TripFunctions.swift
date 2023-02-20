@@ -62,7 +62,7 @@ class TripFunctions {
     }
     
     // Delete trip
-    static func deletetrip(index: Int, coreDataStack: CoreDataStack) {
+    static func deleteTtrip(index: Int, coreDataStack: CoreDataStack) {
         let tripToRemove = ModelsData.tripModels[index]
         coreDataStack.managedContext.delete(tripToRemove)
         coreDataStack.saveContext()

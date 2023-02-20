@@ -109,7 +109,7 @@ class TripsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }))
             ac.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
                 // Perform delete
-                TripFunctions.deletetrip(index: indexPath.row, coreDataStack: self.coreDataStack)
+                TripFunctions.deleteTtrip(index: indexPath.row, coreDataStack: self.coreDataStack)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 actionPerformed(true)
             }))

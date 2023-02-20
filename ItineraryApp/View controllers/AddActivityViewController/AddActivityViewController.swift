@@ -42,7 +42,7 @@ class AddActivityViewController: UITableViewController {
         activityNamePicker.dataSource = self
         activityNamePicker.delegate = self
         
-        if let dayIndex = dayIndexToEdit, let activityModel = activityModelToEdit {
+        if let dayIndex = dayIndexToEdit, let activityModel = activityModelToEdit { // !!!Can try to change day index
             // Update activity: Populate the pop up
             addActivityLabel.text = "Edit Activity"
             
