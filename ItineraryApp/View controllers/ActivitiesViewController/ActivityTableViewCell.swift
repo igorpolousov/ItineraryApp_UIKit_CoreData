@@ -35,6 +35,10 @@ class ActivityTableViewCell: UITableViewCell {
         subtitleLabel.text = model.subtitle
 
         activityImageView.tintColor = Theme.tintColor
+        activityImageView.layer.shadowColor = UIColor.white.cgColor
+        activityImageView.layer.shadowOffset = .zero
+        activityImageView.layer.shadowRadius = 2
+        activityImageView.layer.shadowOpacity = 0.8
         
 
             switch model.activityType {

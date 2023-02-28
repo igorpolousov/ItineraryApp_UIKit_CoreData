@@ -10,8 +10,6 @@ import UIKit
 
 class DayFunctions {
     static func createDay(tripIndex: Int, dayModel: DayModel, coreDataStack: CoreDataStack) {
-        // Replace with real data storage
-
         //ModelsData.tripModels[tripIndex].dayModels?.append(dayModel)
         ModelsData.tripModels[tripIndex].addToDayModels(dayModel)
         guard let sortedDays = ModelsData.tripModels[tripIndex].dayModels?.sorted(by: { dayModel1, dayModel2 in
