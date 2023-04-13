@@ -251,6 +251,7 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         // 1. Get the Current Activity
         guard var dayModel = tripModel?.dayModels?[sourceIndexPath.section] as? DayModel, let activityModel = dayModel.activityModels?[sourceIndexPath.row] as? ActivityModel else {return}
