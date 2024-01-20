@@ -11,3 +11,4 @@
 // 4. Code revision update activity
 // 5. Cloud
 
+// Как достал VSCode со своими ключами
